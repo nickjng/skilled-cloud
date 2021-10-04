@@ -1,0 +1,135 @@
+/* Nosso CSS*/
+
+/* ____________________________Nickolas Junior Nascimento Gonçalves ____________________________*/
+
+/* CSS do conteúdo da pagina (body) 
+------------Body começa aqui -----------*/
+body{
+    margin: 0;   
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+/* -------------- Body termina aqui -------------------- */
+
+/* CSS do cabeçalho da pagina (header) 
+------------------ header começa aqui ----------------------- */
+header{
+    height: 140px;
+    margin-top: 20px;
+}
+
+/* CSS do Container do Header
+----------------------Containercomeça aqui ----------------------- */
+header .container{
+    width: 70%;
+    margin-left: 15%;
+    display: flex;
+    font-weight: 800;
+    align-items: center;
+}
+/* ------------------------ Container Termina aqui --------------------------------- */
+
+/* CSS da foto-logotipo 
+-------------------------- foto-logo começa aqui -----------------*/
+.foto-logo{
+    width: 187px;
+    height: 187px;
+ 
+}
+.foto-logo img{
+    width: 200px;
+    height: 200px;
+}
+/* --------------------------foto-logo Termina aqui ------------------- */
+
+/* CSS nav-bar  
+--------------------------- nav-bar começa aqui --------------------*/
+header .nav-bar{
+    list-style-type: none;
+    display: flex;
+    width: 600px;
+    justify-content: space-between;
+
+}
+
+.nav-bar a {
+    color: black;
+    text-decoration: none;
+}
+/* ---------------------- nav-bar termina aqui ------------------------ */
+
+/* CSS botão cadastrar(cadastrar-buttom)
+------------------------cadastrar-buttom começa aqui --------------------*/
+.cadastrar-buttom{
+    margin-left: 60px;
+    width: 169px;
+    height: 46px;
+    background-color: #5CE1E6;
+    border-radius: 40px;
+    box-shadow: 4px 4px 4px 2px #615757b6 ;
+    display: grid; /* O grid faz o texto poder ficar centralizado tanto na horizontal quanto na vertical */
+    text-align: center;
+    align-items: center;
+}
+.cadastrar-buttom a{
+    color: black;
+    text-decoration: none;}
+
+/*Nicolas e Paulo inicio da tela de cadastro*/
+.banner{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+
+}
+
+.banner .container{
+    display: flex;
+    border: solid 2px;
+    width: 50vw;
+    height: 60vh;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: medium;
+    border-radius: 5%;
+    box-shadow: 5px 5px #00000044;
+    
+}
+
+.banner h2{
+    text-align: center;
+    text-shadow: rgba(0, 0, 0, 0.13) 2px 2px;
+
+}
+
+.banner button{
+    margin-top: 10px;
+    margin-left: 40%;
+    width: 100px;
+    height: 40px;
+    background-color: #5CE1E6;
+    border-radius: 20px;
+    box-shadow: 4px 4px 4px 2px #615757b6 ;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-weight: bold;
+    align-items: center;
+
+}
+
+.banner span{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    margin-left: 20px;    
+}
+/*
+.___.  AU AU!
+{O,O} /
+|)___)
+-"---"-
+'
+'							
+*/
