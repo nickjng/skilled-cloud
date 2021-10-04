@@ -13,10 +13,9 @@ body{
 /* CSS do cabeçalho da pagina (header) 
 ------------------ header começa aqui ----------------------- */
 header{
-    height: 80px;
+    height: 140px;
     margin-top: 20px;
 }
-/* ------------------- Header Termina aqui ----------------------------- */
 
 /* CSS do Container do Header
 ----------------------Containercomeça aqui ----------------------- */
@@ -77,4 +76,36 @@ header .nav-bar{
 }
 /* --------------------- cadastrar-buttom termina aqui --------------------- */
 
-/* ___________________________________Nickolas Junior acabou________________________________________________ */
+/* ------------------- Header Termina aqui ----------------------------- */
+
+/* CSS do inicio do codigo*/
+.inicio{
+    /* padding: 85px 85px; */
+    margin-top: 85px ;
+    text-align: center;
+    color: #3B3B3B;
+}
+.inicio .icons-1 {
+    display: flex;
+    /* background-color: red ; */
+    color: #5CE1E6;
+    height: 48px;
+    width: 8%;
+    margin: auto;
+    justify-content: space-between;
+}
+
+.inicio .title{
+    font-size: 36px;
+    font-weight: 600;
+}
+.inicio .sub-title{
+    margin-top: 50px;
+    font-size: 18px;
+}
+
+.inicio .seta{
+    margin-top: 68px;
+    color: #5CE1E6;
+}
+
