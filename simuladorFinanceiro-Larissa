@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira</title>
+</head>
+
+<body>
+    <div>
+    <div id="forme" class="formulario">
+        <img src="./imagens/calculadora.jpeg" style="width: 250px; height: 250px; border-radius: 130px;" alt=""> <br>
+        
+
+
+            <h1 style="margin: right ;">Calcule seus gastos!</h1>
+        Nome do laraboratorio: <br> <input  id="nome"><br>
+           insira a quantidade de estufas: <br> <input id="qtd_estufas" ><br>
+         Quantidade de exames coletados no mês: <br> <input  id="qtd_coletas"><br>
+         valor do exame:   <br> <input  id="valor_exame"><br>
+           Perdas mensais (em placas): <br> <input id="perdas_mes"><br><br>
+
+            <button id="info" onclick="calculofinanceiro()">Simule Aqui!</button>
+        
+    </div>
+<div>
+    <div style="margin-top: -290px; margin-left: 320px;" id="div_info"></div>
+    <button id="orcamento_final" onclick="orcamento()" style="display: none; margin-left: 325px; margin-top: -10px;">Ver orçamento!</button>
+</div>
+</div>
+    
+    <div id="div_info2" style="margin-left: 320px; width: 700px; margin-top: 30px"></div>
+
+
+
+
+</body>
+
+
+<style>
+ body{
+    background-image: linear-gradient( to bottom, #234572, #156e87, #0f909a, #05aca9, #4bc3bf, #9ddddb, #d4efee ); 
+    /* liner-gradiente serve para colocarmos o gradiente no elemento, e dentro do argumento colocamos as cores e a ordem que irá começar(to bottom(para baixo)) */
+    height: 650px;
+}
+
+   #orcamento_final {
+       border-radius: 30px;
+   }
+    #info{
+        border-radius: 30px;
+    }
+
+</style>
+
+
+
+
+
+
+<script>
+
+    function calculofinanceiro() {
+        var estufas = Number(qtd_estufas.value);
+        var coletas = Number(qtd_coletas.value);
+        var valor = Number(valor_exame.value);
+        var perdas = Number(perdas_mes.value);
+        var avarias = (estufas * 0.15).toFixed(2);
+        var obra = (estufas * 15).toFixed(2);
+        var porcentagem = (perdas * 100 / coletas).toFixed(2);
+        var sensor = (estufas * 60).toFixed(2);
+        var instalacao = (sensor + obra + avarias);
+        var placa = (coletas * 15).toFixed(2);
+        var prejuizo = (perdas * valor).toFixed(2);
+        var preju_ano = prejuizo * 12;
+
+
+
+
+        div_info.innerHTML =
+            `Olá <b>${nome.value}!</b> Seja bem vindo a <b>Labs System</b>. <br> 
+     Verificamos que o percentual de perdas em placas bacterianas em seu laboratório é de <b>${porcentagem}%</b>, o que leva a <b>R$${prejuizo}</b> em prejuizos mensais.<br>
+     Anualmente sua empresa chega a perder <b>R$${preju_ano}.</b><br><br>
+     Com base nos dados da <b>ANVISA</b>, mais de <b>70%</b> de todas as perdas informadas são por conta da falta de controle de temperatura.<br>
+     <b>Clique no Botão abaixo para ver como solucionar seu problema.</b><br><br><br>`
+
+        orcamento_final.style.display = 'block';
+
+    }
+
+
+    function orcamento() {
+        var estufas = Number(qtd_estufas.value);
+        var coletas = Number(qtd_coletas.value);
+        var valor = Number(valor_exame.value);
+        var perdas = Number(perdas_mes.value);
+        var avarias = estufas * 0.15;
+        var obra = estufas * 15;
+        var porcentagem = (perdas * 100 / coletas).toFixed(2);
+        var sensor = estufas * 60;
+        var instalacao = (sensor + obra + avarias).toFixed(2);
+        var placa = (coletas * 15).toFixed(2);
+        var prejuizo = (perdas * valor).toFixed(2);
+        var preju_ano = (prejuizo * 12).toFixed(2);
+
+
+
+        div_info2.innerHTML = `Nosso sistema tem como objetivo fornecer segurança e qualidade de temperatura em suas estufas, trazendo um lucro anual de <b>R$${prejuizo * 11}</b>.<br>
+    <br>
+     Com a instalação de nosso software você irá gastar apenas no dia da instalação <b>R$${instalacao}</b> e uma licença anual de <b>R$${prejuizo * 3}</b>.
+     <b>Para saber mais entre em contato com nossa equipe! <br>contatolabs@system.com.br</b>
+     `
+
+
+
+    }
+
+</script>
+
+
+</html>
