@@ -14,7 +14,8 @@ body{
 ------------------ header começa aqui ----------------------- */
 header{
     height: 140px;
-    margin-top: 20px;
+    background-color: white;
+    margin-bottom: 3.6%;
 }
 
 /* CSS do Container do Header
@@ -78,23 +79,26 @@ header .nav-bar{
 .banner{
     display: flex;
     justify-content: center;
-    padding: 20px;
+    background-image: linear-gradient(rgb(92, 225, 230,0) 5%,rgb(92, 225, 230) 80%);
+    background-size: cover;
+    height: 75.6vh;
 
 }
 
 .banner .container{
     display: flex;
-    border: solid 2px;
+    border: solid lightgray 2px;
     width: 50vw;
     height: 60vh;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     padding: 20px;
     font-weight: bold;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: medium;
     border-radius: 5%;
-    box-shadow: 5px 5px #00000044;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: white;
     
 }
 
@@ -102,11 +106,12 @@ header .nav-bar{
     text-align: center;
     text-shadow: rgba(0, 0, 0, 0.13) 2px 2px;
 
+
 }
 
 .banner button{
     margin-top: 10px;
-    margin-left: 40%;
+    align-self: center;
     width: 100px;
     height: 40px;
     background-color: #5CE1E6;
@@ -121,8 +126,7 @@ header .nav-bar{
 }
 
 .banner span{
-    margin-top: 30px;
-    margin-bottom: 20px;
+    
     margin-left: 20px;    
 }
 /*
