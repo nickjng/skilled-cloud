@@ -7,6 +7,7 @@
 body{
     margin: 0;   
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #3B3B3B;
 }
 /* -------------- Body termina aqui -------------------- */
 
@@ -83,7 +84,7 @@ header .nav-bar{
     /* padding: 85px 85px; */
     margin-top: 85px ;
     text-align: center;
-    color: #3B3B3B;
+    
 }
 .inicio .icons-1 {
     display: flex;
@@ -107,5 +108,16 @@ header .nav-bar{
 .inicio .seta{
     margin-top: 68px;
     color: #5CE1E6;
+    animation-name: fly;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    
+}
+@keyframes fly {
+    100%{
+        transform: translateY(50px)    ;
+    }
 }
 /* ______________________________Nickolas Junior acabou aqui_____________________________*/

@@ -5,35 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="imgs/Logotipo_1.png">
     <script src="https://kit.fontawesome.com/be7ca57738.js" crossorigin="anonymous"></script>
     <title>Skilled Cloud</title>
 </head>
-<body>
+<body id="id_body">
      <header> 
         <div class="container">
-            <div class="foto-logo">
-                <img src="./imgs/skilled_cloud.png" alt="">
+            <div id="foto_logo" class="foto-logo">
+                <img onclick="dark()" src="imgs/skilled_cloud.png" >
             </div>
                 <ul class="nav-bar">
                     <li>
-                        <a href="inicio.html">inicio</a>
+                        <a id="a_inicio" href="inicio.html">inicio</a>
                     </li>
                     <li>
-                        <a href="">Sobre</a>
+                        <a id="a_sobre" href="">Sobre</a>
                     </li>
                     <li>
-                        <a href="">Simulador</a>
+                        <a id="a_simulador" href="">Simulador</a>
                     </li>
                     <li>
-                        <a href="">Login</a> 
+                        <a id="a_login" href="">Login</a> 
                     </li>
                 </ul>
                 <div class="cadastrar-buttom">
-                    <a href="">Cadastrar</a>
+                    <a href="tela-cadastro.html">Cadastrar</a>
                 </div>
         </div>
     </header>
-    <div class="inicio">
+    <div class="inicio" >
         <div class="icons-1">
             <i class="fas fa-thermometer-empty fa-3x"></i>
             <i class="fas fa-cloud fa-3x"></i>
@@ -55,3 +56,30 @@
 </div>
 </body>
 </html>
+<script>
+    var theme_dark = false;
+    
+    function dark(){
+     if (theme_dark == false) {
+         theme_dark = true;
+         id_body.style.backgroundColor = "black"
+         id_body.style.color = "white"
+         a_inicio.style.color = "white"
+         a_sobre.style.color = "white"
+         a_simulador.style.color = "white"
+         a_login.style.color = "white"
+         foto_logo.innerHTML = `<img onclick="dark()" src="imgs/Logotipo_black_2.png" >`
+        //  alert("tema escuro")
+     } else{
+         theme_dark = false
+         id_body.style.backgroundColor = "white"
+         id_body.style.color = "#3B3B3B"
+         a_inicio.style.color = "black"
+         a_sobre.style.color = "black"
+         a_simulador.style.color = "black"
+         a_login.style.color = "black"
+         foto_logo.innerHTML = `<img onclick="dark()" src="imgs/skilled_cloud.png" >`
+        //  alert("tema claro")
+     }
+    }
+</script>
