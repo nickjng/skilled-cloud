@@ -153,3 +153,39 @@ h2{
     font-size: 22px;
     margin-top: 30px;
 }
+/*___________________Final simulador Financeiro___________________*/
+/*___________________Quem somos e video __________________________*/
+
+.body1{
+    background-color: #5ce1e6;
+    margin: 0%;
+    padding: 0%;
+}
+.titulo {
+    color: white;
+    margin-left: 45%;
+
+}
+.divisao1 {
+    width: 80%;
+    height: 800px;
+    background-color: white;
+    margin-left: 10%;
+    border-radius: 10px;
+}
+iframe{
+    width: 95%;;
+    height: 500px;
+    margin-left: 2.5%;
+    margin-top: 2%;
+
+}
+.imagem-logo{
+    height: 100px;
+    width: 100px;
+    padding-left: 2.5%;
+}
+.paragrafo{
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+}
