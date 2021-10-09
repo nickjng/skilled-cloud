@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <div id="foto_logo" class="foto-logo">
+                <img onclick="dark()" src="imgs/skilled_cloud.png">
+            </div>
+            <ul class="nav-bar">
+                <li>
+                    <a id="a_inicio" href="inicio.html">inicio</a>
+                </li>
+                <li>
+                    <a id="a_sobre" href="">Sobre</a>
+                </li>
+                <li>
+                    <a id="a_simulador" href="">Simulador</a>
+                </li>
+                <li>
+                    <a id="a_login" href="">Login</a>
+                </li>
+            </ul>
+            <div class="cadastrar-buttom">
+                <a href="tela-cadastro.html">Cadastrar</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="corpo">
+        <h2>Saiba agora o quanto pode deixar de perder:</h2>
+
+        <span class="pergunta">Qual nome do seu laboratório?</span><br>
+        <input class="preenchimento" id="usuario"><br><br>
+
+
+        <span class="pergunta">Quantas vacinas são fabricadas em média por mês atualmente?</span><br>
+        <input class="preenchimento" id="quantidade" type="number"><br><br>
+
+
+        <span class="pergunta">Qual tipo de vacina seu laboratório produz?</span><br>
+        <select class="preenchimento1" id="tipo_vacina">
+            <option value="0"></option>
+            <option value="5">Contra Covid-19</option>
+            <option value="93.3">BCG</option>
+            <option value="91.1">Tríplice viral</option>
+            <option value="80.9">Dupla Viral</option>
+            <option value="79.4">Contra febre amarela</option>
+            <option value="68.4">Contra Hepatite B</option>
+            <option value="63.3">Dupla Adulto</option>
+            <option value="61.2">Oral Contra Poliomelite</option>
+            <option value="60">Tríplice bacteriana</option>
+            <option value="60">Tetravalente</option>
+            <option value="19.9">Contra Influenza</option>
+            <option value="6.2">Rotavirús Humano</option>
+            <option value="6">Contra Raiva-Cultivo Celular </option>
+            <option value="0.7">Contra Meningocócica Conjugada -C</option>
+
+        </select> <br><br>
+
+        <span class="pergunta">Qual o valor unitário de revenda desse produto?</span><br>
+        <input class="preenchimento" id="valor" type="Number"><br><br>
+
+        <button style="background-color: #5ce1e6; border-radius: 10px;" onclick="calculo()">Calcular</button>
+        <br><br>
+
+        <div id="impressao" class="impressao1">
+
+        </div>
+
+    </div>
+
+
+    <script>
+        function calculo() {
+            var tipo = tipo_vacina.value;
+            var perda = tipo * quantidade.value / 100;
+            var lucro = quantidade.value - perda;
+            var vantagem = perda * valor.value / 20;
+
+            impressao.innerHTML = `Com base em dados fornecidos pelo sistema publico de saúde 
+                    brasileiro, atualmente em média estima-se que o ${usuario.value} perde ${perda} vacinas mensalmente, 
+                    Com a solução da Skilled Cloud, você terá um lucro 20% maior, isto é R$ ${vantagem},00
+                    somados a sua receita atual. `;
+
+            impressao.style.display = 'block';
+
+
+
+
+        }
+
+    </script>
+
+    </div>
+
+</body>
+
+</body>
+
+</html>
