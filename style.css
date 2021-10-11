@@ -9,13 +9,32 @@ body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #3B3B3B;
 }
-/* -------------- Body termina aqui -------------------- */
+
+#photo_fundo{
+    background-image: url(imgs/background_white.jpg);
+    background-size: cover; 
+}
+.dark_mode{
+    height: 25px;
+    width: 120px;
+    float: right;
+    margin-right: 20px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+
+}
+.dark_mode img{
+    height: 25px;
+    width: 25px;
+    
+    
+}
 
 /* CSS do cabeçalho da pagina (header) 
 ------------------ header começa aqui ----------------------- */
 header{
     height: 140px;
-    margin-top: 20px;
 }
 
 /* CSS do Container do Header
@@ -48,7 +67,7 @@ header .nav-bar{
     list-style-type: none;
     display: flex;
     width: 600px;
-    justify-content: space-between;
+    justify-content: space-around;
 
 }
 
@@ -108,16 +127,17 @@ header .nav-bar{
 .inicio .seta{
     margin-top: 68px;
     color: #5CE1E6;
-    animation-name: fly;
-    animation-duration: 1s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-direction: alternate-reverse;
+    animation-name: fly;  /*Dando um nome para a função animation*/
+    animation-duration: 1s; /*Definindo o tempo da animação*/
+    animation-timing-function: ease-in-out; /*Definindo como irá reajir a animação*/
+    animation-iteration-count: infinite; /*Defindo que a animação vai se repitir inifinitamente*/ 
+    animation-direction: alternate-reverse; /*Definindo sua direção*/
     
 }
+/*-------------------@Keyframe fly ------------------------*/
 @keyframes fly {
-    100%{
-        transform: translateY(50px)    ;
+    100%{ /*quando a animação chegar ao seus 100%*/
+        transform: translateY(30px); /*vai mexer o icone em 30px no seu Y */
     }
 }
 /* ______________________________Nickolas Junior acabou aqui_____________________________*/
