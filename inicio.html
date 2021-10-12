@@ -10,11 +10,16 @@
     <title>Skilled Cloud</title>
 </head>
 <body id="id_body">
-     <header> 
-        <div class="container">
-            <div id="foto_logo" class="foto-logo">
-                <img onclick="dark()" src="imgs/skilled_cloud.png" >
+    <div id="photo_fundo"> <!-- imagem de fundo  -->
+        <!-- Menu ou Header -->
+        <header>
+            <div onclick="dark()" class="dark_mode">
+                <img  src="https://cdn-icons-png.flaticon.com/512/5262/5262027.png"> <p>Dark mode</p>
             </div>
+            <div class="container">
+                <div id="foto_logo" class="foto-logo">
+                    <img  src="imgs/skilled_cloud.png">
+                </div>
                 <ul class="nav-bar">
                     <li>
                         <a id="a_inicio" href="inicio.html">inicio</a>
@@ -29,15 +34,16 @@
                         <a id="a_login" href="">Login</a> 
                     </li>
                 </ul>
-                <div class="cadastrar-buttom">
-                    <a href="tela-cadastro.html">Cadastrar</a>
-                </div>
-        </div>
-    </header>
+                    <div class="cadastrar-buttom">
+                        <a href="tela-cadastro.html">Cadastrar</a>
+                    </div>
+            </div>
+        </header>
+        <!-- Conteudo -->
     <div class="inicio" >
         <div class="icons-1">
-            <i class="fas fa-thermometer-empty fa-3x"></i>
-            <i class="fas fa-cloud fa-3x"></i>
+            <i class="fas fa-thermometer-empty fa-3x"></i> <!--Utilizando o icone de termometro-->
+            <i class="fas fa-cloud fa-3x"></i> <!---->
         </div>
         <div class="title">
             <span>SEGURANÇA E PRATICIDADE<br>
@@ -50,7 +56,7 @@
             vacinas</span> 
         </div>
         <div class="seta">
-            <i class="far fa-arrow-alt-circle-down fa-3x"></i>
+            <i class="far fa-arrow-alt-circle-down fa-3x"></i> <!-- Utilizando o icone da seta apontando pra baixo-->
         </div>
     </div>
 </div>
@@ -62,23 +68,25 @@
     function dark(){
      if (theme_dark == false) {
          theme_dark = true;
-         id_body.style.backgroundColor = "black"
+         photo_fundo.style.backgroundImage = "url(imgs/background_dark.jpg)"
+         id_body.style.backgroundColor = "#141414"
          id_body.style.color = "white"
          a_inicio.style.color = "white"
          a_sobre.style.color = "white"
          a_simulador.style.color = "white"
          a_login.style.color = "white"
-         foto_logo.innerHTML = `<img onclick="dark()" src="imgs/Logotipo_black_2.png" >`
+         foto_logo.innerHTML = `<img src="imgs/Logotipo_black_2.png" >`
         //  alert("tema escuro")
      } else{
          theme_dark = false
+         photo_fundo.style.backgroundImage = "url(imgs/background_white.jpg)"
          id_body.style.backgroundColor = "white"
          id_body.style.color = "#3B3B3B"
          a_inicio.style.color = "black"
          a_sobre.style.color = "black"
          a_simulador.style.color = "black"
          a_login.style.color = "black"
-         foto_logo.innerHTML = `<img onclick="dark()" src="imgs/skilled_cloud.png" >`
+         foto_logo.innerHTML = `<img src="imgs/skilled_cloud.png" >`
         //  alert("tema claro")
      }
     }
