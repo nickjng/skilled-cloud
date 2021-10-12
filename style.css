@@ -153,6 +153,12 @@ h2{
     font-size: 22px;
     margin-top: 30px;
 }
+.botao_calcular{
+    background-color: #5ce1e6; 
+    border-radius: 10px;
+    width: 80px;
+    height: 25px;
+}
 /*___________________Final simulador Financeiro___________________*/
 /*___________________Quem somos e video __________________________*/
 
