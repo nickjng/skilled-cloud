@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style1.css">
+    <script src="https://kit.fontawesome.com/be7ca57738.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 
@@ -48,7 +49,7 @@
         <!--_____ Campo de preenchimento_______*/-->
         <div>
             <div class="corpo">
-                <h2>Saiba agora o quanto pode deixar de perder:</h2>
+                <h2 id="titulo2">Saiba agora o quanto pode deixar de perder:</h2>
 
                 <span class="pergunta">Qual nome do seu laboratório?</span><br>
                 <input class="preenchimento" id="usuario"><br><br>
@@ -93,12 +94,21 @@
 
     </div>
 
+    <div class="footer">
+        <div class="texto-footer">
+            <i class="far fa-envelope fa-1x"></i><br>Email: Skilledcloudcontato@skilled.com.br<br><br>
 
-    
+            <i class="fab fa-instagram fa-1x"></i><br>Instagram: https://www.instagram.com/skilledcloud/<br><br>
+             
+            <i class="fab fa-linkedin-in fa-1x"></i><br>Linkedin: https://br.linkedin.com/skilledcoud <br><br>
+            
+            <i class="fas fa-phone-alt fa-1x"></i><br>Central telefônica: (11) 5212-1415</div><br>
 
+            <div class="">
 
+            </div>
 
-
+    </div>
 
 </body>
 
@@ -142,6 +152,7 @@
          quantidade.style.color = "#fff"
          tipo_vacina.style.color = "#fff"
          preco.style.color = "#fff"
+         
 
         //  alert("tema escuro")
      } else{
@@ -154,6 +165,14 @@
          a_simulador.style.color = "black"
          a_login.style.color = "black"
          foto_logo.innerHTML = `<img src="imgs/skilled_cloud.png" >`
+         usuario.style.backgroundColor = "#fff"
+         quantidade.style.backgroundColor = "#fff"
+         tipo_vacina.style.backgroundColor = "#fff"
+         preco.style.backgroundColor = "#fff"
+         usuario.style.color = "#000"
+         quantidade.style.color = "#000"
+         tipo_vacina.style.color = "#000"
+         preco.style.color = "#000"
         //  alert("tema claro")
      }
     }

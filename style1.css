@@ -148,6 +148,7 @@ header .nav-bar{
     text-align: center; 
     margin-left: 20%; 
     width: 60%;
+    height: 600px;
     
 }
 .pergunta{
@@ -216,4 +217,16 @@ iframe{
 .paragrafo{
     padding-left: 2.5%;
     padding-right: 2.5%;
+}
+
+/*_______________footer______________*/
+.footer{
+    width: 100%;
+    height: 300px;
+    background-color: #5ce1e6;
+    
+}
+.texto-footer{
+    text-align: center;
+    
 }
