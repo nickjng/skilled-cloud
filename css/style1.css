@@ -230,7 +230,6 @@ iframe{
     height: 260px;
     background-color: #5ce1e6;
     padding-top: 10px;
-    border-top: 4px solid #3B3B3B;
 }
 .texto-footer{
     text-align: center;
@@ -251,6 +250,3 @@ iframe{
     
    
 }
-
-/*___________________dashboard_________________*/
-
