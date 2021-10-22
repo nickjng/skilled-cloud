@@ -5,8 +5,7 @@
     box-sizing: border-box;
 }
 
-body {
-    
+body {    
     font-family: 'Open Sans', sans-serif; 
 }
 header{
@@ -37,8 +36,8 @@ header .container1{
     height: 200px;
 }
 /* --------------------------foto-logo Termina aqui ------------------- */
-.photo-fundo{
-    background-image: url(./background_white.jpg);
+#photo_fundo{
+    background-image: url(imgs/background_white.jpg);
     background-size: cover; 
 }
 .dark_mode{

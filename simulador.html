@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="css/style1.css">
     <script src="https://kit.fontawesome.com/be7ca57738.js" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
     <title>Document</title>
 </head>
 
@@ -22,7 +23,7 @@
 
             <div class="container">
                 <div id="foto_logo" class="foto-logo">
-                    <img src="imgs/skilled_cloud.png">
+                    <img src="css/imgs/skilled_cloud.png">
                 </div>
                 <ul class="nav-bar">
                     <li>
@@ -32,14 +33,14 @@
                         <a id="a_sobre" href="">Sobre</a>
                     </li>
                     <li>
-                        <a id="a_simulador" href="">Simulador</a>
+                        <a id="a_equipe" href="">Equipe</a>
                     </li>
                     <li>
-                        <a id="a_login" href="">Login</a>
+                        <a id="a_simulador" href="">Simulador</a>
                     </li>
                 </ul>
                 <div class="cadastrar-buttom">
-                    <a href="tela-cadastro.html">Cadastrar</a>
+                    <a href="acesso.html">Acesso</a>
                 </div>
             </div>
         </header>
@@ -111,83 +112,5 @@
     </div>
 
 </body>
-
-
-
 </html>
 
-<script>
-    var theme_dark = false;
-    function calculo() {
-        var tipo = tipo_vacina.value; // a porcentagem de perdas é o id das options, dado fornecido pelo SUS 
-        var perda = tipo * quantidade.value / 100; // porcentagem perdas * o quanto produz / 100 passando para porcentagem
-        var lucro = quantidade.value - perda;
-        var vantagem = perda * preco.value / 20; // valor das perdas * 20% resultando no que podemos proporcionar.
-
-        impressao.innerHTML = `Com base em dados fornecidos pelo sistema publico de saúde 
-                brasileiro, atualmente em média estima-se que o ${usuario.value} perde <b>${perda}</b> vacinas mensalmente. 
-                Com a solução da Skilled Cloud, você terá um lucro 20% maior, isto é R$ <b>${vantagem},00</b>
-                somados à sua receita atual por mês. `;
-
-        impressao.style.display = 'block';
-
-    }   
-    
-    function dark(){
-     if (theme_dark == false) {
-         theme_dark = true;
-         photo_fundo.style.backgroundImage = "url(imgs/background_dark.jpg)"
-         id_body.style.backgroundColor = "#141414"
-         id_body.style.color = "white"
-         a_inicio.style.color = "white"
-         a_sobre.style.color = "white"
-         a_simulador.style.color = "white"
-         a_login.style.color = "white"
-         foto_logo.innerHTML = `<img src="imgs/Logotipo_black_2.png" >`
-         usuario.style.backgroundColor = "#474a51"
-         quantidade.style.backgroundColor = "#474a51"
-         tipo_vacina.style.backgroundColor = "#474a51"
-         preco.style.backgroundColor = "#474a51"
-         usuario.style.color = "#fff"
-         quantidade.style.color = "#fff"
-         tipo_vacina.style.color = "#fff"
-         preco.style.color = "#fff"
-         id_footer.style.backgroundColor = "#274360"   
-         a_email.style.color = "#fff"
-         a_instagram.style.color = "#fff"
-         a_linkedin.style.color = "#fff"
-         a_fone.style.color = "#fff"
-         containerk.style.color = "#274360"
-         
-         
-
-        //  alert("tema escuro")
-     } else{
-         theme_dark = false
-         photo_fundo.style.backgroundImage = "url(imgs/background_white.jpg)"
-         id_body.style.backgroundColor = "white"
-         id_body.style.color = "#3B3B3B"
-         a_inicio.style.color = "black"
-         a_sobre.style.color = "black"
-         a_simulador.style.color = "black"
-         a_login.style.color = "black"
-         foto_logo.innerHTML = `<img src="imgs/skilled_cloud.png" >`
-         usuario.style.backgroundColor = "#fff"
-         quantidade.style.backgroundColor = "#fff"
-         tipo_vacina.style.backgroundColor = "#fff"
-         preco.style.backgroundColor = "#fff"
-         usuario.style.color = "#000"
-         quantidade.style.color = "#000"
-         tipo_vacina.style.color = "#000"
-         preco.style.color = "#000"
-         id_footer.style.backgroundColor = "#5ce1e6"   
-         a_email.style.color = "#000"
-         a_instagram.style.color = "#000"
-         a_linkedin.style.color = "#000"
-         a_fone.style.color = "#000"
-         containerk.style.color = "#000"
-        //  alert("tema claro")
-     }
-    }
-
-</script>
