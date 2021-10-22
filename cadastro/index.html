@@ -1,27 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+    <div class="photo-fundo">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
     
-    <link rel="stylesheet" href="style-login.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-       
+     
 </head>
 
 <body>
+    
+    <header>
+        <div onclick="dark()" class="dark_mode">
+            <img src="https://cdn-icons-png.flaticon.com/512/5262/5262027.png">
+            <p>Dark mode</p>
+        </div>
+        <div class="container1">
+            <div id="foto_logo" class="foto-logo">
+                <img src="./skilled_cloud.png">
+            </div>
+            <ul class="nav-bar">
+                <li>
+                    <a id="a_inicio" href="inicio.html">inicio</a>
+                </li>
+                <li>
+                    <a id="a_sobre" href="">Sobre</a>
+                </li>
+                <li>
+                    <a id="a_simulador" href="calculadora-leo.html">Simulador</a>
+                </li>
+                <li>
+                    <a id="a_login" href="">Login</a>
+                </li>
+            </ul>
+            <div class="cadastrar-buttom">
+                <a href="tela-cadastro.html">Cadastrar</a>
+            </div>
+        </div>
+    </header>
+
     <div class="container">
-        <div class="content primeiro-conteudo">
-            <div class="primeira-coluna">
-                <h2 class="titulo titulo-primario">Seja Bem Vindo!</h2>
-                <p class="descricao-primaria">Para manter conectado com a gente</p>
-                <p class="descricao-primaria">Por favor faça o login com as sua informações</p>
-                <button id="signin" class="botao botao-primario">Entrar</button>
+        <div class="content first-content">
+            <div class="first-column">
+                <h2 class="title title-primary">Seja Bem Vindo!</h2>
+                <p class="description description-primary">Para manter conectado com a gente</p>
+                <p class="description description-primary">Por favor faça o login com as sua informações</p>
+                <button id="signin" class="btn btn-primary">Entrar</button>
             </div>    
-            <div class="segunda-coluna">
-                <h2 class="titulo titulo-secundario">Crie seu conta</h2>
+            <div class="second-column">
+                <h2 class="title title-second">Crie sua conta</h2>
                 <div class="social-media">
                     <ul class="list-social-media">
                         <a class="link-social-media" href="#">
@@ -41,7 +72,7 @@
                         </a>
                     </ul>
                 </div><!-- social media -->
-                <p class="descricao descricao-secundaria">ou use o seu email para registro:</p>
+                <p class="description description-second">ou use o seu email para registro:</p>
                 <form class="form">
                     <label class="label-input" for="">
                         <i class="far fa-user icon-modify"></i>
@@ -55,23 +86,23 @@
                     
                     <label class="label-input" for="">
                         <i class="fas fa-lock icon-modify"></i>
-                        <input type="password" placeholder="Senha">
+                        <input type="password" placeholder="Password">
                     </label>
                     
                     
-                    <button class="botao botao-secundario">Cadastra-se</button>        
+                    <button class="btn btn-second">Cadastra-se</button>        
                 </form>
             </div><!-- second column -->
         </div><!-- first content -->
-        <div class="content segundo-conteudo">
-            <div class="primeira-coluna">
-                <h2 class="titulo titulo-primario"><img src=".imgs/skilled_cloud.png" alt=""></h2>
-                <p class="descricao descricao-primaria">Insira seus dados cadastrados</p>
-                <p class="descricao descricao-primaria">E comece a jornada conosco</p>
-                <button id="signup" class="botao botao-primario">Cadastra-se</button>
+        <div class="content second-content">
+            <div class="first-column">
+                <h2 class="title title-primary"><img src="./skilled_cloud.png" alt=""></h2>
+                <p class="description description-primary">Insira seus dados cadastrados</p>
+                <p class="description description-primary">E comece a jornada conosco</p>
+                <button id="signup" class="btn btn-primary">Cadastra-se</button>
             </div>
-            <div class="segunda-coluna">
-                <h2 class="titulo titulo-secundario">Entrar</h2>
+            <div class="second-column">
+                <h2 class="title title-second">Entrar</h2>
                 <div class="social-media">
                     <ul class="list-social-media">
                         <a class="link-social-media" href="#">
@@ -91,7 +122,7 @@
                         </a>
                     </ul>
                 </div><!-- social media -->
-                <p class="descricao descricao-secundaria">ou use sua conta do email:</p>
+                <p class="description description-second">ou use sua conta do email:</p>
                 <form class="form">
                 
                     <label class="label-input" for="">
@@ -104,12 +135,31 @@
                         <input type="password" placeholder="Password">
                     </label>
                 
-                    <a class="senha" href="#">esqueci minha senha</a>
-                    <button class="botao botao-secundario">Entrar</button>
+                    <a class="password" href="#">esqueci minha senha</a>
+                    <button class="btn btn-second">Entrar</button>
                 </form>
             </div><!-- second column -->
         </div><!-- second-content -->
     </div>
+        
+    
+    </div>
+    <div id="id_footer" class="footer">
+        <div id="texto_footer" class="texto-footer">
+            <a href="" id="a_email"><i class="far fa-envelope fa-1x"></i><br>Email: Skilledcloudcontato@skilled.com.br<br><br></a>
+
+            <a href="" id="a_instagram"><i class="fab fa-instagram fa-1x"></i><br>Instagram: https://www.instagram.com/skilledcloud/<br><br></a>
+             
+            <a href="" id="a_linkedin"><i class="fab fa-linkedin-in fa-1x"></i><br>Linkedin: https://br.linkedin.com/skilledcoud <br><br></a>
+            
+            <a href="" id="a_fone"><i class="fas fa-phone-alt fa-1x"></i><br>Central telefônica: (11) 5212-1415</a><br></div>
+
+            <div id="containerdiv" class="containerdiv">
+                <h4 id="containerk" class="containert">Skilled Cloud &copy; 2021</h4>
+            </div>
+
+    </div>
+            </div>
     <script src="script.js"></script>
 </body>
 </html>
