@@ -25,6 +25,10 @@ function dark() {
         quantidade.style.color = "#fff"
         tipo_vacina.style.color = "#fff"
         preco.style.color = "#fff"
+
+
+        //inicio footer
+        id_footer.style.backgroundColor = "red";
         //  alert("tema escuro")
     } else {
         theme_dark = false
@@ -47,6 +51,10 @@ function dark() {
         quantidade.style.color = "#000"
         tipo_vacina.style.color = "#000"
         preco.style.color = "#000"
+        
+
+        //inicio footer 
+        
         //  alert("tema claro")
     }
 }
@@ -83,3 +91,4 @@ btnSignin.addEventListener("click", function () {
 btnSignup.addEventListener("click", function () {
     body.className = "sign-up-js";
 })  
+

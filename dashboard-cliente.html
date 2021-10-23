@@ -6,18 +6,15 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style1.css">
+        <link rel="stylesheet" href="./css/style1.css">
+        <link rel="shortcut icon" href="imgs/Logotipo_1.png">
         <script src="https://kit.fontawesome.com/be7ca57738.js" crossorigin="anonymous"></script>
-        <title>Line Chart</title>
+        <title>Skilled Cloud</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
         <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
         <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
         <style>
-            canvas {
-                -moz-user-select: none;
-                -webkit-user-select: none;
-                -ms-user-select: none;
-            }
+            
         </style>
         <title>Document</title>
     </head>
@@ -26,7 +23,7 @@
 
         <!--________Barra inicio_______-->
 
-        <div id="photo_fundo" style="height: 600px;">
+        <div id="photo_fundo" class="container87">
             <header>
                 <div onclick="dark()" class="dark_mode">
                     <img src="https://cdn-icons-png.flaticon.com/512/5262/5262027.png">
@@ -35,7 +32,7 @@
 
                 <div class="container">
                     <div id="foto_logo" class="foto-logo">
-                        <img src="imgs/skilled_cloud.png">
+                        <img src="./css/imgs/skilled_cloud.png">
                     </div>
                     <ul class="nav-bar">
 
@@ -46,27 +43,24 @@
                             <a id="" href="">Meus dados</a>
                         </li>
                         <li>
-                            <a id="" href="">suporte</a>
+                            <a id="" href="">Suporte</a>
                         </li>
                     </ul>
 
                 </div>
             </header>
 
-            <div
-                style=" margin-left: 20%; margin-right: 20%; background-color: white; padding-top: 10px; border-radius: 10px;">
+            <div class="container54" id="container54">
 
-                <h1 style="text-align: left; display: flex; justify-content: center;">Refrigerador</h1>
+                <h1 id="titulo_refrigerador1" class="titulo_refrigerador">Armazenamento</h1>
 
-                <div id="container5" style="display: flex; justify-content: center; ">
-
-                    <div style="padding-left: 20px; display: flex;">
+                <div id="inputs1" class="inputs">
 
 
-                        <div
-                            style="text-align: center; padding-top: 8px; height: 220px; width: 250px; background-color: #5ce1e6; border-radius: 15px;">
+                        <div id="datas1"
+                             class="datas">
                             <p>Consulta (data)<br></p>
-                            <select id="">
+                            <select class="estyle_input">
                                 <option value="1">Hoje</option>
                                 <option value="2">28/10/2021</option>
                                 <option value="3">27/10/2021</option>
@@ -78,7 +72,7 @@
                                 <option value="5">21/10/2021</option>
                             </select>
                             <p>Geladeira:<br></p>
-                            <select id="id_geladeira">
+                            <select class="estyle_input" id="id_geladeira">
                                 <option value="0"></option>
                                 <option value="1">Geladeira 1094</option>
                                 <option value="2">Geladeira 1032</option>
@@ -86,11 +80,11 @@
                                 <option value="4">Geladeira 1088</option>
 
                             </select><br><br><br>
-                            <button onclick="verificar()">Verificar condições</button>
+                            <button id="botao_gealdeira1" class="botao_geladeira" onclick="verificar()">Verificar condições</button>
                         </div>
 
-                        <div id="informacao" style="padding-left: 30px; display: none;">
-                            <h3 style="padding-left: 70px;">Informações</h3>
+                        <div class="informacao_geladeira" id="informacao">
+                            <h3 class="h3_informacao">Informações</h3>
                             <p>Código interno equipamento (id):<br>
                                 <span id="id_equipamento"></span>
                             </p>
@@ -100,118 +94,23 @@
                             <p>Sala: <span id="sala"></span></p>
                         </div>
 
-
-
-
-
-                    </div>
-
-
                 </div>
 
-                <div id="grafico" style="display: flex; display: none; justify-content: center; margin-top: 20px;">
+                <div id="grafico" class="container_sensor">
 
 
-                    <div  style="text-align: center;">
+                    <div class="div_sensor">
                         <h1>Sensor LM35 - Temperatura</h1>
                         <section>
                             <h2>Média: <label id='average'>0.00</label></h2>
                         </section>
-                        <section style="width:100%">
+                        <section class="section_sensor">
                             <canvas id="chart"></canvas>
                             <section>
                     </div>
 
                 </div>
-
-
-                    <script>
-
-                        var context = document.getElementById("chart").getContext("2d");
-                        context.canvas.width = 1000;
-                        context.canvas.height = 300;
-
-                        var configuration = {
-                            type: 'line',
-                            data: {
-                                datasets: [{
-                                    label: "Temperatura",
-                                    type: 'line',
-                                    borderColor: ['#ff3232'],
-                                    backgroundColor: ['#ff7f7f']
-                                }]
-                            },
-                            options: {
-                                scales: {
-                                    xAxes: [{
-                                        distribution: 'series',
-                                        ticks: {
-                                            beginAtZero: true
-                                        }
-                                    }],
-                                    yAxes: [{
-                                        scaleLabel: {
-                                            display: true,
-                                            labelString: 'Temperatura'
-                                        },
-                                        ticks: {
-                                            beginAtZero: true
-                                        }
-                                    }]
-                                },
-                                animation: {
-                                    duration: 0
-                                }
-                            }
-                        };
-
-                        var chart = new Chart(context, configuration);
-
-                        //Função para obter os dados de temperatura do server
-                        //Seria mais interessante fazer isso com WebSocket, porém para fins academicos, os dados serão atualizados via HTTP
-
-                        //Esse atributo dentro do contexto serve para saber qual foi o último índice processado, assim eliminado os outros elementos na
-                        //hora de montar/atualizar o gráfico
-                        this.lastIndexTemp = 0;
-                        this.time = 0;
-
-                        function get_data() {
-
-                            var http = new XMLHttpRequest();
-                            http.open('GET', 'http://localhost:3000/api', false);
-                            http.send(null);
-
-                            var obj = JSON.parse(http.responseText);
-                            if (obj.data.length == 0) {
-                                return;
-                            }
-
-                            var _lastIndexTemp = this.lastIndexTemp;
-                            this.lastIndexTemp = obj.data.length;
-                            listTemp = obj.data.slice(_lastIndexTemp);
-
-                            listTemp.forEach(data => {
-                                //Máximo de 60 itens exibidos no gráfico
-                                if (chart.data.labels.length == 10 && chart.data.datasets[0].data.length == 10) {
-                                    chart.data.labels.shift();
-                                    chart.data.datasets[0].data.shift();
-                                }
-
-                                chart.data.labels.push(this.time++);
-                                chart.data.datasets[0].data.push(parseFloat(data));
-                                chart.update();
-                            });
-
-                            document.getElementById('average').textContent = obj.average;
-                        }
-
-                        setInterval(() => {
-                            get_data();
-                        }, 1000);
-
-                    </script>
-
-                
+              
 
             </div>
 
@@ -235,13 +134,130 @@
     </div>
 
 
-
-
-
 </html>
 
-<script>
-    function verificar() {
+<!--<script>
+var context = document.getElementById("chart").getContext("2d");
+		context.canvas.width = 1000;
+		context.canvas.height = 300;
+        
+        var configuration = {
+			type: 'line',
+			data: {
+				datasets: [{
+					label: "Temperatura",
+					type: 'line',
+					borderColor: ['#ff3232'],
+					backgroundColor: ['#ff7f7f']
+				}]
+			},
+			options: {
+				scales: {
+					xAxes: [{ 
+						distribution: 'series',
+                        ticks: {
+                            beginAtZero:true
+                        }
+					}],
+					yAxes: [{
+						scaleLabel: {
+							display: true,
+							labelString: 'Temperatura'
+                        },
+                        ticks: {
+                            beginAtZero:true
+                        }
+					}]
+				},
+				animation: {
+					duration: 0
+				}
+			}
+        };
+        
+		var chart = new Chart(context, configuration);
+
+        //Função para obter os dados de temperatura do server
+        //Seria mais interessante fazer isso com WebSocket, porém para fins academicos, os dados serão atualizados via HTTP
+        
+        //Esse atributo dentro do contexto serve para saber qual foi o último índice processado, assim eliminado os outros elementos na
+        //hora de montar/atualizar o gráfico
+        this.lastIndexTemp = 0;
+        this.time = 0;
+
+        function get_data(){
+
+            var http = new XMLHttpRequest();
+            http.open('GET', 'http://localhost:3000/api', false);
+            http.send(null);        
+			
+            var obj = JSON.parse(http.responseText);
+            if (obj.data.length == 0){
+                return;
+            }
+
+            var _lastIndexTemp = this.lastIndexTemp;
+            this.lastIndexTemp = obj.data.length;
+            listTemp = obj.data.slice(_lastIndexTemp);
+
+            listTemp.forEach(data => {
+                //Máximo de 60 itens exibidos no gráfico
+                if (chart.data.labels.length == 10 && chart.data.datasets[0].data.length == 10){
+                    chart.data.labels.shift();
+                    chart.data.datasets[0].data.shift();
+                }
+
+                chart.data.labels.push(this.time++);
+                chart.data.datasets[0].data.push(parseFloat(data));
+                chart.update();
+			});
+			
+			document.getElementById('average').textContent = obj.average;
+		} 
+
+        setInterval(() => {
+			get_data();
+        }, 1000);
+
+    -->
+
+    <script>
+
+    var theme_dark = false;
+
+    function dark() {
+        
+    if (theme_dark == false) {
+        theme_dark = true;
+        photo_fundo.style.backgroundImage = "url(css/imgs/background_dark.jpg)"
+        id_body.style.backgroundColor = "#141414"
+        id_body.style.color = "white"
+        foto_logo.innerHTML = `<img src="css/imgs/Logotipo_black_2.png" >`
+        titulo_refrigerador1.style.color = "#white"
+        datas1.style.backgroundColor = "#808080";
+        container54.style.background = "#141414"
+        
+        
+    
+        
+        
+       
+        
+    } else {
+        theme_dark = false
+        photo_fundo.style.backgroundImage = "url(css/imgs/background_white.jpg)"
+        id_body.style.backgroundColor = "white"
+        id_body.style.color = "#3B3B3B"
+        foto_logo.innerHTML = `<img src="css/imgs/skilled_cloud.png" >`
+        titulo_refrigerador1.style.color = "#56e1e6"
+        datas1.style.backgroundColor = "#e5e2d9"
+        container54.style.background = "white"
+        
+        //  alert("tema claro")
+    }
+}
+
+function verificar() {
         var geladeira = id_geladeira.value;
         if (geladeira == 0) {
             alert("Geladeira deve ser preenchida")
@@ -278,6 +294,8 @@
         }
     }
 
+   
 
-
+   
 </script>
+

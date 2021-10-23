@@ -22,6 +22,7 @@ body{
     margin-top: 20px;
     display: flex;
     align-items: center;
+    cursor: pointer;
 
 }
 .dark_mode img{
@@ -249,4 +250,79 @@ iframe{
     background-color: #a9a9a9;
     
    
+}
+/*______________Dashboard_______________*/
+canvas {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+.container87{
+    height: 600px;
+}
+.container54{
+    margin-left: 20%; 
+    margin-right: 20%; 
+    background-color: white; 
+    padding-top: 10px; 
+    border-radius: 10px;
+}
+.titulo_refrigerador{
+    text-align: left; 
+    display: flex; 
+    justify-content: center;
+    color: #5CE1E6;
+    
+}
+
+.inputs{
+    padding-left: 150px; 
+    display: flex; 
+    justify-content: left;
+    
+
+}
+.datas{
+    text-align: center; 
+    padding-top: 8px; 
+    height: 220px; 
+    width: 250px; 
+    background-color: #e5e2d9; 
+    border-radius: 15px;
+    
+}
+.informacao_geladeira{
+    padding-left: 30px; 
+    display: none;
+}
+.h3_informacao{
+    padding-left: 70px;
+    
+}
+.container_sensor{
+    display: flex;
+    display: none; 
+    justify-content: center; 
+    margin-top: 20px;
+}
+.div_sensor{
+    text-align: center;
+}
+.section_sensor{
+    width:100%;
+}
+.estyle_input{
+    width: 120px;
+    height: 25px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.botao_geladeira{
+    width: 130px;
+    height: 25px;
+    background-color: #5CE1E6;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    border-color: #5CE1E6;
 }
