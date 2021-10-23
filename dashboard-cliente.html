@@ -37,13 +37,13 @@
                     <ul class="nav-bar">
 
                         <li>
-                            <a id="" onclick="" href=""><u>Controle</u></a>
+                            <a id="id_controle" onclick="" href=""><u>Controle</u></a>
                         </li>
                         <li>
-                            <a id="" href="">Meus dados</a>
+                            <a id="id_dados" href="">Meus dados</a>
                         </li>
                         <li>
-                            <a id="" href="">Suporte</a>
+                            <a id="id_suporte" href="">Suporte</a>
                         </li>
                     </ul>
 
@@ -236,8 +236,17 @@ var context = document.getElementById("chart").getContext("2d");
         titulo_refrigerador1.style.color = "#white"
         datas1.style.backgroundColor = "#808080";
         container54.style.background = "#141414"
-        
-        
+        id_controle.style.color = "white"
+        id_dados.style.color = "white"
+        id_suporte.style.color = "white"
+
+        // inicio dark footer 
+        id_footer.style.backgroundColor = "#274360"   
+        a_email.style.color = "white"
+        a_instagram.style.color = "white"
+        a_linkedin.style.color = "white"
+        a_fone.style.color = "white"
+
     
         
         
@@ -252,6 +261,16 @@ var context = document.getElementById("chart").getContext("2d");
         titulo_refrigerador1.style.color = "#56e1e6"
         datas1.style.backgroundColor = "#e5e2d9"
         container54.style.background = "white"
+        id_controle.style.color = "black"
+        id_dados.style.color = "black"
+        id_suporte.style.color = "black"
+
+        // inicio footer white
+        id_footer.style.backgroundColor = "#56e1e6"   
+        a_email.style.color = "black"
+        a_instagram.style.color = "black"
+        a_linkedin.style.color = "black"
+        a_fone.style.color = "black"
         
         //  alert("tema claro")
     }

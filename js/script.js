@@ -26,9 +26,12 @@ function dark() {
         tipo_vacina.style.color = "#fff"
         preco.style.color = "#fff"
 
-
-        //inicio footer
-        id_footer.style.backgroundColor = "red";
+       // inicio dark footer 
+       id_footer.style.backgroundColor = "#274360"   
+       a_email.style.color = "white"
+       a_instagram.style.color = "white"
+       a_linkedin.style.color = "white"
+       a_fone.style.color = "white"
         //  alert("tema escuro")
     } else {
         theme_dark = false
@@ -53,7 +56,12 @@ function dark() {
         preco.style.color = "#000"
         
 
-        //inicio footer 
+        // inicio footer white
+        id_footer.style.backgroundColor = "#56e1e6"   
+        a_email.style.color = "black"
+        a_instagram.style.color = "black"
+        a_linkedin.style.color = "black"
+        a_fone.style.color = "black"
         
         //  alert("tema claro")
     }
