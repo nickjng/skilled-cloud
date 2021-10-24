@@ -6,6 +6,12 @@ var theme_dark = false;
 function dark() {
     if (theme_dark == false) {
         theme_dark = true;
+         // inicio dark footer 
+       id_footer.style.backgroundColor = "#274360"   
+       a_email.style.color = "white"
+       a_instagram.style.color = "white"
+       a_linkedin.style.color = "white"
+       a_fone.style.color = "white"
         photo_fundo.style.backgroundImage = "url(css/imgs/background_dark.jpg)"
         id_body.style.backgroundColor = "#141414"
         id_body.style.color = "white"
@@ -26,15 +32,16 @@ function dark() {
         tipo_vacina.style.color = "#fff"
         preco.style.color = "#fff"
 
-       // inicio dark footer 
-       id_footer.style.backgroundColor = "#274360"   
-       a_email.style.color = "white"
-       a_instagram.style.color = "white"
-       a_linkedin.style.color = "white"
-       a_fone.style.color = "white"
+      
         //  alert("tema escuro")
     } else {
         theme_dark = false
+         // inicio footer white
+        id_footer.style.backgroundColor = "#56e1e6"   
+        a_email.style.color = "black"
+        a_instagram.style.color = "black"
+        a_linkedin.style.color = "black"
+        a_fone.style.color = "black"
         photo_fundo.style.backgroundImage = "url(css/imgs/background_white.jpg)"
         id_body.style.backgroundColor = "white"
         id_body.style.color = "#3B3B3B"
@@ -56,12 +63,7 @@ function dark() {
         preco.style.color = "#000"
         
 
-        // inicio footer white
-        id_footer.style.backgroundColor = "#56e1e6"   
-        a_email.style.color = "black"
-        a_instagram.style.color = "black"
-        a_linkedin.style.color = "black"
-        a_fone.style.color = "black"
+       
         
         //  alert("tema claro")
     }
