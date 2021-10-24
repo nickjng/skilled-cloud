@@ -136,7 +136,7 @@
 
 </html>
 
-<!--<script>
+<script>
 var context = document.getElementById("chart").getContext("2d");
 		context.canvas.width = 1000;
 		context.canvas.height = 300;
@@ -219,9 +219,9 @@ var context = document.getElementById("chart").getContext("2d");
 			get_data();
         }, 1000);
 
-    -->
+    
 
-    <script>
+    
 
     var theme_dark = false;
 
@@ -295,6 +295,7 @@ function verificar() {
             andar.innerHTML = `3°`;
             sala.innerHTML = `4°`;
             situacao.innerHTML = `ativo`;
+            grafico.style.display = `block`;
 
         } else if (geladeira == 3) {
             informacao.style.display = `block`;
@@ -302,6 +303,7 @@ function verificar() {
             andar.innerHTML = `2°`;
             sala.innerHTML = `10`;
             situacao.innerHTML = `ativo`;
+            grafico.style.display = `block`;
 
         } else if (geladeira == 4) {
             informacao.style.display = `block`;
@@ -309,6 +311,7 @@ function verificar() {
             andar.innerHTML = `1°`;
             sala.innerHTML = `5`;
             situacao.innerHTML = `ativo`;
+            grafico.style.display = `block`;
 
         }
     }

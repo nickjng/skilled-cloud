@@ -306,6 +306,8 @@ canvas {
     display: none; 
     justify-content: center; 
     margin-top: 20px;
+    background-color: #e5e2d9;
+    border-radius: 10px;
 }
 .div_sensor{
     text-align: center;
