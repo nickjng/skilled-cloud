@@ -6,13 +6,6 @@ var theme_dark = false;
 function dark() {
     if (theme_dark == false) {
         theme_dark = true;
-         // inicio dark footer 
-        id_footer.style.backgroundColor = "#274360"   
-        a_email.style.color = "white"
-        a_instagram.style.color = "white"
-        a_linkedin.style.color = "white"
-        a_fone.style.color = "white"
-        //fim footer
         photo_fundo.style.backgroundImage = "url(css/imgs/background_dark.jpg)"
         id_body.style.backgroundColor = "#141414"
         id_body.style.color = "white"
@@ -22,6 +15,13 @@ function dark() {
         a_equipe.style.color = "white"
         foto_logo.innerHTML = `<img src="css/imgs/Logotipo_black_2.png" >`        
         divisao1.style.backgroundColor = "#141414"
+        // inicio dark footer 
+       id_footer.style.backgroundColor = "#274360"   
+       a_email.style.color = "white"
+       a_instagram.style.color = "white"
+       a_linkedin.style.color = "white"
+       a_fone.style.color = "white"
+       //fim footer
         imagem_logo.src = "css/imgs/Logotipo_black_2.png"
         titulo.style.color = "#3B3B3B"
         usuario.style.backgroundColor = "#474a51"
