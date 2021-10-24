@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap');
-* {
+*{
     margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
 body {    
-    font-family: 'Open Sans', sans-serif; 
+    /* font-family: 'Open Sans', sans-serif;  */
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+
 }
 header{
     height: 140px;
@@ -121,11 +124,13 @@ header .nav-bar{
     left: 0;
 }
 .title {
+    margin: 0;
     font-size: 28px;
     font-weight: bold;
     text-transform: capitalize;
 }
 .title-primary img{
+    margin: 0;
     width: 20vw;
     height: 38vh;
     align-self: center;
