@@ -31,5 +31,10 @@ function entrar(){
     var senha_entrar = input_entrar_senha.value;
     if(mail_entrar == "" || senha_entrar == ""){
         alert("Todos os campos devem ser preenchidos");
+    } else if (mail_entrar == "cliente123@skilledcloud.com" && senha_entrar == "123456"){
+        window.location.href = "dashboard-cliente.html";
+       alert("bem vindo")
+    }else {
+        alert("email ou senha incorretos")
     }
 }
