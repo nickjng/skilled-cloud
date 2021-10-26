@@ -9,7 +9,6 @@ body {
     margin: 0;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
-
 }
 header{
     height: 140px;
@@ -231,8 +230,9 @@ header .nav-bar{
 }
 .form {
     display: flex;
-    flex-direction: column;
-    width: 55%;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .form input {
     height: 45px;
@@ -241,12 +241,33 @@ header .nav-bar{
     background-color: #ecf0f1;
    
 }
-input:-webkit-autofill 
-{    
+
+.second-content .form{
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    align-items: center;
+}
+
+.form input {
+    height: 45px;
+    width: 100%;
+    border: none;
+    background-color: #ecf0f1;
+}
+input:-webkit-autofill {    
     -webkit-box-shadow: 0 0 0px 1000px #ecf0f1 inset !important;
     -webkit-text-fill-color: #000 !important;
 }
+
 .label-input {
+    background-color: #ecf0f1;
+    display: flex;
+    align-items: center;
+    margin: 8px;
+    width: fit-content;
+}
+.second-content .label-input {
     background-color: #ecf0f1;
     display: flex;
     align-items: center;
@@ -455,7 +476,6 @@ input:-webkit-autofill
 /*_______________footer______________*/
 .footer{
     width: 100%;
-    height: 260px;
     background-color: #5ce1e6;
     padding-top: 10px;
 }
@@ -467,4 +487,14 @@ input:-webkit-autofill
 .texto-footer a{
     text-decoration: none;
     color: black;
+}
+
+.containert{
+    text-align: center;
+    color: black;
+    width: 100%;
+    height: 20px;
+    background-color: #a9a9a9;
+    
+   
 }
