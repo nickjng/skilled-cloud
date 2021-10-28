@@ -77,7 +77,7 @@ function calculo() {
     var vantagem = perda * preco.value / 20; // valor das perdas * 20% resultando no que podemos proporcionar.
 
     impressao.innerHTML = `Com base em dados fornecidos pelo sistema publico de saúde 
-            brasileiro, atualmente em média estima-se que o ${usuario.value} perde <b>${perda.toFixed(2)}</b> vacinas mensalmente. 
+            brasileiro, atualmente em média estima-se que o ${usuario.value} perde <b>${perda}</b> vacinas mensalmente. 
             Com a solução da Skilled Cloud, você terá um lucro 20% maior, isto é R$ <b>${vantagem.toFixed(2)}</b>
             somados à sua receita atual por mês. `;
 
