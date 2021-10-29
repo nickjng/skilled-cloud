@@ -7,7 +7,10 @@
 
 body {
     font-family: 'Open Sans', sans-serif; /*especificando que todo o meu body terá essa fonte */
-}
+} 
+
+/*__________________div da tela de cadastro começa aqui____________________*/
+
 .container {
     display: flex;
     justify-content: center;
@@ -377,4 +380,4 @@ body {
         left: 0;
         width: 40%;
     }
-}
+} /*__________________div da tela de cadastro acaba aqui____________________*/
