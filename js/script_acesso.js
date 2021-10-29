@@ -15,14 +15,22 @@ btnSignup.addEventListener("click", function () {
 
  
 function cadastro(){
+    var cnpj = input_cnpj.value;
+    var endereco = input_endereco.value;
+    var cep = input_cep.value;
     var mail = input_email.value;
     var pass_senha = input_senha.value;
     var nome = input_nome.value;
     var mail_entrar = input_entrar_email.value;
     var senha_entrar = input_entrar_senha.value;
-    if(mail == "" || pass_senha == "" || nome == ""){
+    if(mail == "" || pass_senha == "" || nome == "" || cep == "" || endereco == "" || cnpj == ""){
         alert("Todos os campos devem ser preenchidos");
 
+    } else if (mail.indexOf(".com") > -1) {
+        alert ("email invalido")
+    }
+     else {
+        alert ("cadastro concluido com sucesso")
     }
     
 }
