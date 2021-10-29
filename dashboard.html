@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style1.css">
+    <link rel="shortcut icon" href="imgs/Logotipo_1.png">
+    <script src="https://kit.fontawesome.com/be7ca57738.js" crossorigin="anonymous"></script>
+    <title>Skilled Cloud</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+    <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+    <style>
+
+    </style>
+    <title>Document</title>
+</head>
+
+<body id="id_body">
+
+    <!--________Barra inicio_______-->
+
+    <div id="photo_fundo" class="container87">
+        <header>
+            <div onclick="dark()" class="dark_mode">
+                <img src="https://cdn-icons-png.flaticon.com/512/5262/5262027.png">
+                <p>Dark mode</p>
+            </div>
+
+            <div class="container">
+                <div id="foto_logo" class="foto-logo">
+                    <img src="./css/imgs/skilled_cloud.png">
+                </div>
+                <ul class="nav-bar">
+
+                    <li>
+                        <a id="id_controle" onclick="" href=""><u>Controle</u></a>
+                    </li>
+                    <li>
+                        <a id="id_dados" href="">Meus dados</a>
+                    </li>
+                    <li>
+                        <a id="id_suporte" href="">Suporte</a>
+                    </li>
+                </ul>
+
+            </div>
+        </header>
+
+        <div class="container54" id="container54">            
+
+            <h1 id="titulo_refrigerador1" class="titulo_refrigerador">Armazenamento</h1>
+
+            
+
+            <div id="inputs1" class="inputs">
+
+
+                <div id="datas1" class="datas">
+                    <p>Consulta (data)<br></p>
+                    <select class="estyle_input">
+                        <option value="1">Hoje</option>
+                        <option value="2">28/10/2021</option>
+                        <option value="3">27/10/2021</option>
+                        <option value="4">26/10/2021</option>
+                        <option value="5">25/10/2021</option>
+                        <option value="2">24/10/2021</option>
+                        <option value="3">23/10/2021</option>
+                        <option value="4">22/10/2021</option>
+                        <option value="5">21/10/2021</option>
+                    </select>
+                    <p>Geladeira:<br></p>
+                    <select class="estyle_input" id="id_geladeira">
+                        <option value="0"></option>
+                        <option value="1">Geladeira 1094</option>
+                        <option value="2">Geladeira 1032</option>
+                        <option value="3">Geladeira 1075</option>
+                        <option value="4">Geladeira 1088</option>
+
+                    </select><br><br><br>
+                    <button id="botao_gealdeira1" class="botao_geladeira" onclick="verificar()">Verificar
+                        condições</button>
+                </div>
+
+                <div class="informacao_geladeira" id="informacao">
+                    <h3 class="h3_informacao">Informações</h3>
+                    <p>Código interno equipamento (id):<br>
+                        <span id="id_equipamento"></span>
+                    </p>
+                    <p>Status geladeira: <span id="situacao"></span></p>
+                    <p>Localização: </p>
+                    <p>Andar: <span id="andar"></span></p>
+                    <p>Sala: <span id="sala"></span></p>
+
+                </div>
+              
+
+            </div>
+
+            <div id="grafico" class="container_sensor">
+
+
+                <div class="div_sensor">
+                    <h1 id="titulo_temperatura_sensor">Sensor LM35 - Temperatura</h1>
+                    <section>
+                        <h2 id="titulo_media_sensor">Média: <label id='average'>0.00</label></h2>
+                    </section>
+                    <section class="section_sensor">
+                        <canvas id="chart"></canvas>
+                        <section>
+                </div>
+
+            </div>
+
+            <div style="text-align: center; display: none;" id="id_conteudo">
+                <h3>Conteúdo:</h3>
+                <p><b>Nome:</b> Tríplice viral </p>
+                <p><b>id/lote:</b> 134678 </p>
+                <p><b>Temperatura ideal:</b> min 2°C - max 8°C <span id=""></span></p>
+                <p><b>Validade:</b> 13/08/2022</p>
+                <p><b>Data entrada:</b> 20/08/2021<span id=""></span></p>
+                <p><b>Quantidade/lote:</b> 43 <span id=""></span></p><br><br>
+                <p><b>Nome:</b> Tetravalente </p>
+                <p><b>id/lote:</b> 145389 </p>
+                <p><b>Temperatura ideal:</b> min 2°C - max 8°C <span id=""></span></p>
+                <p><b>Validade:</b> 20/10/2022</p>
+                <p><b>Data entrada:</b> 06/09/2021<span id=""></span></p>
+                <p><b>Quantidade/lote:</b> 88 <span id=""></span></p>
+
+            </div>
+
+
+        </div>
+
+        
+
+
+</body>
+
+<div id="id_footer" class="footer" style="margin-top: 200px;">
+    <div id="texto_footer" class="texto-footer">
+        <a href="" id="a_email"><i class="far fa-envelope fa-1x"></i><br>Email:
+            Skilledcloudcontato@skilled.com.br<br><br></a>
+
+        <a href="" id="a_instagram"><i class="fab fa-instagram fa-1x"></i><br>Instagram:
+            https://www.instagram.com/skilledcloud/<br><br></a>
+
+        <a href="" id="a_linkedin"><i class="fab fa-linkedin-in fa-1x"></i><br>Linkedin:
+            https://br.linkedin.com/skilledcoud <br><br></a>
+
+        <a href="" id="a_fone"><i class="fas fa-phone-alt fa-1x"></i><br>Central telefônica: (11) 5212-1415</a><br>
+    </div>
+
+    <div id="containerdiv" class="containerdiv">
+        <h4 id="containerk" class="containert">Skilled Cloud &copy; 2021</h4>
+    </div>
+
+</div>
+
+
+</html>
+
+<script>
+var context = document.getElementById("chart").getContext("2d");
+    context.canvas.width = 1000;
+    context.canvas.height = 300;
+    
+    var configuration = {
+        type: 'line',
+        data: {
+            datasets: [{
+                label: "Temperatura",
+                type: 'line',
+                borderColor: ['#ff3232'],
+                backgroundColor: ['#ff7f7f']
+            }]
+        },
+        options: {
+            scales: {
+                xAxes: [{ 
+                    distribution: 'series',
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }],
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Temperatura'
+                    },
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            },
+            animation: {
+                duration: 0
+            }
+        }
+    };
+    
+    var chart = new Chart(context, configuration);
+
+    //Função para obter os dados de temperatura do server
+    //Seria mais interessante fazer isso com WebSocket, porém para fins academicos, os dados serão atualizados via HTTP
+    
+    //Esse atributo dentro do contexto serve para saber qual foi o último índice processado, assim eliminado os outros elementos na
+    //hora de montar/atualizar o gráfico
+    this.lastIndexTemp = 0;
+    this.time = 0;
+
+    function get_data(){
+
+        var http = new XMLHttpRequest();
+        http.open('GET', 'http://localhost:3000/api', false);
+        http.send(null);        
+    	
+        var obj = JSON.parse(http.responseText);
+        if (obj.data.length == 0){
+            return;
+        }
+
+        var _lastIndexTemp = this.lastIndexTemp;
+        this.lastIndexTemp = obj.data.length;
+        listTemp = obj.data.slice(_lastIndexTemp);
+
+        listTemp.forEach(data => {
+            //Máximo de 60 itens exibidos no gráfico
+            if (chart.data.labels.length == 10 && chart.data.datasets[0].data.length == 10){
+                chart.data.labels.shift();
+                chart.data.datasets[0].data.shift();
+            }
+
+            chart.data.labels.push(this.time++);
+            chart.data.datasets[0].data.push(parseFloat(data));
+            chart.update();
+        });
+    	
+        document.getElementById('average').textContent = obj.average;
+    } 
+
+    setInterval(() => {
+        get_data();
+    }, 1000);
+
+
+
+    var theme_dark = false;
+
+    function dark() {
+
+        if (theme_dark == false) {
+            theme_dark = true;
+            photo_fundo.style.backgroundImage = "url(css/imgs/background_dark.jpg)"
+            id_body.style.backgroundColor = "#141414"
+            id_body.style.color = "white"
+            foto_logo.innerHTML = `<img src="css/imgs/Logotipo_black_2.png" >`
+            titulo_refrigerador1.style.color = "#white"
+            datas1.style.backgroundColor = "#808080";
+            container54.style.background = "#141414"
+            id_controle.style.color = "white"
+            id_dados.style.color = "white"
+            id_suporte.style.color = "white"
+            titulo_temperatura_sensor.style.color = "black"
+            titulo_media_sensor.style.color = "black"
+
+            // inicio dark footer 
+            id_footer.style.backgroundColor = "#274360"
+            a_email.style.color = "white"
+            a_instagram.style.color = "white"
+            a_linkedin.style.color = "white"
+            a_fone.style.color = "white"
+
+
+
+
+
+
+        } else {
+            theme_dark = false
+            photo_fundo.style.backgroundImage = "url(css/imgs/background_white.jpg)"
+            id_body.style.backgroundColor = "white"
+            id_body.style.color = "#3B3B3B"
+            foto_logo.innerHTML = `<img src="css/imgs/skilled_cloud.png" >`
+            titulo_refrigerador1.style.color = "#56e1e6"
+            datas1.style.backgroundColor = "#e5e2d9"
+            container54.style.background = "white"
+            id_controle.style.color = "black"
+            id_dados.style.color = "black"
+            id_suporte.style.color = "black"
+            titulo_temperatura_sensor.style.color = "black"
+            titulo_media_sensor.style.color = "black"
+
+            // inicio footer white
+            id_footer.style.backgroundColor = "#56e1e6"
+            a_email.style.color = "black"
+            a_instagram.style.color = "black"
+            a_linkedin.style.color = "black"
+            a_fone.style.color = "black"
+
+            //  alert("tema claro")
+        }
+    }
+
+    function verificar() {
+        var geladeira = id_geladeira.value;
+        if (geladeira == 0) {
+            alert("Geladeira deve ser preenchida")
+        } else if (geladeira == 1) {
+            informacao.style.display = `block`;
+            id_equipamento.innerHTML = `GL1094`;
+            andar.innerHTML = `4°`;
+            sala.innerHTML = `12`;
+            situacao.innerHTML = `ativo`;
+            grafico.style.display = `block`;
+            id_conteudo.style.display = `block`;
+
+
+        } else if (geladeira == 2) {
+            informacao.style.display = `block`;
+            id_equipamento.innerHTML = `GL1032`;
+            andar.innerHTML = `3°`;
+            sala.innerHTML = `4°`;
+            situacao.innerHTML = `ativo`;
+            grafico.style.display = `block`;
+            id_conteudo.style.display = `block`;
+
+        } else if (geladeira == 3) {
+            informacao.style.display = `block`;
+            id_equipamento.innerHTML = `GL1075`;
+            andar.innerHTML = `2°`;
+            sala.innerHTML = `10`;
+            situacao.innerHTML = `ativo`;
+            grafico.style.display = `block`;
+            id_conteudo.style.display = `block`;
+
+        } else if (geladeira == 4) {
+            informacao.style.display = `block`;
+            id_equipamento.innerHTML = `GL1088`;
+            andar.innerHTML = `1°`;
+            sala.innerHTML = `5`;
+            situacao.innerHTML = `ativo`;
+            grafico.style.display = `block`;
+            id_conteudo.style.display = `block`;
+
+        }
+    }
+
+
+
+
+</script>

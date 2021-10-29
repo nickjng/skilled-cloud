@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style1.css">
+    <script src="https://kit.fontawesome.com/be7ca57738.js" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+    <title>Document</title>
+</head>
+
+<body id="id_body">
+
+    <!--________Barra inicio_______*/-->
+
+    <div id="photo_fundo">
+        <header>
+            <div onclick="dark()" class="dark_mode">
+                <img src="https://cdn-icons-png.flaticon.com/512/5262/5262027.png">
+                <p>Dark mode</p>
+            </div>
+
+            <div class="container">
+                <div id="foto_logo" class="foto-logo">
+                    <a href="inicio.html"><img src="css/imgs/skilled_cloud.png"></a>
+                </div>
+                <ul class="nav-bar">
+                    <li>
+                        <a id="a_inicio" href="inicio.html">inicio</a>
+                    </li>
+                    <li>
+                        <a id="a_sobre" href="inicio.html#quem-somos">Sobre</a>
+                    </li>
+                    <li>
+                        <a id="a_equipe" href="inicio.html#nossa_equipe">Equipe</a>
+                    </li>
+                    <li>
+                        <a id="a_simulador" href="simulador.html">Simulador</a>
+                    </li>
+                </ul>
+                <div class="cadastrar-buttom">
+                    <a href="acesso.html">Acessar</a>
+                </div>
+            </div>
+        </header>
+
+
+
+        <!--_____ Campo de preenchimento_______*/-->
+        <div>
+            <div class="corpo">
+                <h2 id="titulo2">Saiba agora o quanto pode deixar de perder:</h2>
+
+                <span class="pergunta">Qual nome do seu laboratório?</span><br>
+                <input class="preenchimento" id="usuario"><br><br>
+
+
+                <span class="pergunta">Quantas vacinas são fabricadas em média por mês atualmente?</span><br>
+                <input class="preenchimento" id="quantidade" type="number"><br><br>
+
+
+                <span class="pergunta">Qual tipo de vacina seu laboratório produz?</span><br>
+                <select class="preenchimento1" id="tipo_vacina">
+                    <option value="0"></option>
+                    <option value="5">Contra Covid-19</option>
+                    <option value="93.3">BCG</option>
+                    <option value="91.1">Tríplice viral</option>
+                    <option value="80.9">Dupla Viral</option>
+                    <option value="79.4">Contra febre amarela</option>
+                    <option value="68.4">Contra Hepatite B</option>
+                    <option value="63.3">Dupla Adulto</option>
+                    <option value="61.2">Oral Contra Poliomelite</option>
+                    <option value="60">Tríplice bacteriana</option>
+                    <option value="60">Tetravalente</option>
+                    <option value="19.9">Contra Influenza</option>
+                    <option value="6.2">Rotavirús Humano</option>
+                    <option value="6">Contra Raiva-Cultivo Celular </option>
+                    <option value="0.7">Contra Meningocócica Conjugada -C</option>
+
+                </select> <br><br>
+
+                <span class="pergunta">Qual o valor unitário de revenda desse produto em reais?</span><br>
+                <input class="preenchimento" id="preco" type="Number"><br><br>
+
+                <button class="botao_calcular" onclick="calculo()">Calcular</button>
+                <br><br>
+
+                <div id="impressao" class="impressao1">
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div id="id_footer" class="footer">
+        <div id="texto_footer" class="texto-footer">
+            <a href="" id="a_email"><i class="far fa-envelope fa-1x"></i><br>Email:
+                Skilledcloudcontato@skilled.com.br<br><br></a>
+
+            <a href="" id="a_instagram"><i class="fab fa-instagram fa-1x"></i><br>Instagram:
+                https://www.instagram.com/skilledcloud/<br><br></a>
+
+            <a href="" id="a_linkedin"><i class="fab fa-linkedin-in fa-1x"></i><br>Linkedin:
+                https://br.linkedin.com/skilledcoud <br><br></a>
+
+            <a href="" id="a_fone"><i class="fas fa-phone-alt fa-1x"></i><br>Central telefônica: (11) 5212-1415</a><br>
+        </div>
+
+        <div id="containerdiv" class="containerdiv">
+            <h4 id="containerk" class="containert">Skilled Cloud &copy; 2021</h4>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
