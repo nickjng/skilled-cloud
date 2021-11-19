@@ -73,8 +73,7 @@ function dark() {
 function calculo() {
     var tipo = tipo_vacina.value; // a porcentagem de perdas é o id das options, dado fornecido pelo SUS 
     var perda = tipo * quantidade.value / 100; // porcentagem perdas * o quanto produz / 100 passando para porcentagem
-    var lucro = quantidade.value - perda;
-    var vantagem = perda * preco.value / 20; // valor das perdas * 20% resultando no que podemos proporcionar.
+    var vantagem =  (perda * 0.02 ) * preco.value // valor das perdas * 20% resultando no que podemos proporcionar.
 
     impressao.innerHTML = `Com base em dados fornecidos pelo sistema publico de saúde 
             brasileiro, atualmente em média estima-se que o ${usuario.value} perde <b>${perda}</b> vacinas mensalmente. 
