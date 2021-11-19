@@ -21,7 +21,7 @@ function cadastro(){
     var cepVar = input_cep.value;
     var enderecoVar = input_endereco.value;
     var cnpjVar = input_cnpj.value;
-    if (mail == "" || pass_senha == "" || nome == "") {
+    if (mail == "" || pass_senha == "" || nomeVar == "") {
         alert("Todos os campos devem ser preenchidos");
 
     } else {
@@ -52,17 +52,58 @@ function cadastro(){
         });
     }
 }
-function entrar(event){
-    // console.log(event);
-    // event.preventDefault();
-    var mail_entrar = input_entrar_email.value;
-    var senha_entrar = input_entrar_senha.value;
-    if(mail_entrar == "" || senha_entrar == ""){
-        alert("Todos os campos devem ser preenchidos");
-    } else if (mail_entrar == "cliente123@skilledcloud.com" && senha_entrar == "123456"){
-        window.location.href = "./dashboard.html";
-       
-    }else {
-        alert("email ou senha incorretos")
+function entrar() {
+    var emailVar = input_entrar_email.value;
+    var senhaVar = input_entrar_senha.value;
+
+    // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+    if (emailVar == "" || senhaVar == "") {
+        window.alert("Preencha todos os campos para prosseguir!");
+        return false;
     }
+
+    if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
+        window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+    }
+
+    fetch("/usuarios/autenticar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            email: emailVar,
+            senha: senhaVar,
+        })
+    }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!")
+
+        if (resposta.ok) {
+            console.log(resposta);
+
+            resposta.json().then(json => {
+                console.log(json);
+                console.log(JSON.stringify(json));
+
+                sessionStorage.EMAIL_USUARIO = json.email;
+                sessionStorage.NOME_USUARIO = json.nome;
+                sessionStorage.ID_USUARIO = json.id;
+                window.location="./dashboard.html";
+
+            });
+
+        } else {
+
+            console.log("Houve um erro ao tentar realizar o login!");
+
+            resposta.text().then(texto => {
+                console.error(texto);
+            });
+        }
+
+    }).catch(function (erro) {
+        console.log(erro);
+    })
+
+    return false;
 }

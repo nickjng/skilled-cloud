@@ -63,20 +63,23 @@ function cadastrar(req, res) {
     var nome = req.body.nome;
     var email = req.body.email;
     var senha = req.body.senha;
-    var telefone = req.body.telefone;
-
-    console.log("telefone que chegou novo: " + telefone);
-
+    var cep = req.body.cep;
+    var cnpj=req.body.cnpj;
+    var endereco=req.body.endereco;
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
     } else if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
-    } else if (telefone == undefined) {
-        res.status(400).send("Sua senha está undefined!");
+    } else if (cep == undefined) {
+        res.status(400).send("Seu cep está undefined!");
+    } else if (endereco == undefined) {
+        res.status(400).send("Seu endereço está undefined!");
+    } else if (cnpj == undefined) {
+        res.status(400).send("Seu cnpj está undefined!");
     } else {    
-        usuarioModel.cadastrar(nome, email, senha, telefone)
+        usuarioModel.cadastrar(nome, email, senha, cep,cnpj,endereco)
             .then(
                 function (resultado) {
                     res.json(resultado);
