@@ -21,37 +21,69 @@ function cadastro(){
     var cepVar = input_cep.value;
     var enderecoVar = input_endereco.value;
     var cnpjVar = input_cnpj.value;
-    if (mail == "" || pass_senha == "" || nomeVar == "") {
-        alert("Todos os campos devem ser preenchidos");
-
-    } else {
-        fetch("/usuarios/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                nome: nomeVar,
-                email: mail,
-                senha: pass_senha,
-                cnpj: cnpjVar,
-                cep: cepVar,
-                endereco: enderecoVar
-            })
-        }).then(function (resposta) {
-
-            console.log("resposta: ", resposta);
-
-            if (resposta.ok) {
-                window.alert("Cadastro realizado com sucesso!");
+    if (pass_senha != "" && nomeVar != "" && cepVar != "" && enderecoVar != "" && cnpjVar != "" && mail != "") {
+        if (mail.indexOf("@") > -1) {
+            if (mail.indexOf(".com") > -1) {
+                fetch("/usuarios/cadastrar", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        nome: nomeVar,
+                        email: mail,
+                        senha: pass_senha,
+                        cnpj: cnpjVar,
+                        cep: cepVar,
+                        endereco: enderecoVar
+                    })
+                }).then(function (resposta) {
+        
+                    console.log("resposta: ", resposta);
+        
+                    if (resposta.ok) {
+                        window.alert("Cadastro realizado com sucesso!");
+                    } else {
+                        throw ("Houve um erro ao tentar realizar o cadastro!");
+                    }
+                }).catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                });
             } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
+                alert("email ou senha invalido")
+                document.getElementById("input_email").style.border = "1px solid red"
+                document.getElementById("input_senha").style.border = "1px solid red"
+                document.getElementById("input_nome").style.border = "1px solid red"
+                document.getElementById("input_cnpj").style.border = "1px solid red"
+                document.getElementById("input_endereco").style.border = "1px solid red"
+                document.getElementById("input_cep").style.border = "1px solid red"
             }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
+        } else {
+
+            alert("email ou senha invalido")
+            document.getElementById("input_email").style.border = "1px solid red"
+            document.getElementById("input_senha").style.border = "1px solid red"
+            document.getElementById("input_nome").style.border = "1px solid red"
+            document.getElementById("input_cnpj").style.border = "1px solid red"
+            document.getElementById("input_endereco").style.border = "1px solid red"
+            document.getElementById("input_cep").style.border = "1px solid red"
+        }
+    } else {
+        alert("os campos precisam ser preenchidos")
+
+        document.getElementById("input_email").style.border = "1px solid red"
+        document.getElementById("input_senha").style.border = "1px solid red"
+        document.getElementById("input_nome").style.border = "1px solid red"
+        document.getElementById("input_cnpj").style.border = "1px solid red"
+        document.getElementById("input_endereco").style.border = "1px solid red"
+        document.getElementById("input_cep").style.border = "1px solid red"
     }
 }
+
+
+     
+      
+
 function entrar() {
     var emailVar = input_entrar_email.value;
     var senhaVar = input_entrar_senha.value;
@@ -59,11 +91,16 @@ function entrar() {
     // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
     if (emailVar == "" || senhaVar == "") {
         window.alert("Preencha todos os campos para prosseguir!");
+        document.getElementById("input_entrar_email").style.border = "1px solid red"
+        document.getElementById("input_entrar_senha").style.border = "1px solid red"
         return false;
+        
     }
 
     if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
         window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+        document.getElementById("input_entrar_email").style.border = "1px solid red"
+        document.getElementById("input_entrar_senha").style.border = "1px solid red"
     }
 
     fetch("/usuarios/autenticar", {
