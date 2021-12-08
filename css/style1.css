@@ -27,9 +27,9 @@ body{
 }
 .dark_mode img{
     height: 25px;
-    width: 25px;
+    width: 25px; 
     
-    
+ 
 }
 
 /* CSS do cabeçalho da pagina (header) 
@@ -399,3 +399,178 @@ canvas {
     color: white;
     border-color: #5CE1E6;
 }
+
+.teste{
+    width:100%;
+    height: 35px;
+    background-color: black;
+}
+.dash {
+width: 100%;
+position: relative;
+/* top: 0; */
+/* left: 25%; */
+background-color: #161618;
+
+/* width: 75%;
+display: flex;
+background-color: #161618;
+flex-direction: column;
+align-items: center;
+justify-content: space-around;*/
+height: 100vh;
+}
+
+.regua {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+width: 100%;
+/* margin-top: 30px; */
+}
+
+.perigo-frio {
+background-color: #5c6bc0;
+}
+
+.perigo-quente {
+background-color: #ff7043;
+}
+
+.alerta-frio {
+background-color: #42a5f5;
+}
+
+.alerta-quente {
+background-color: #ffee58;
+}
+
+.ideal {
+background-color: #9ccc65;
+}
+
+.item-regua {
+padding: 5px;
+width: 15%;
+margin: 5px;
+text-align: center;
+padding-top: 15px;
+}
+
+.cards {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+height: 450px;
+width: 100%;
+align-items: center;
+color: white;
+}
+
+.card {
+margin: 2%;
+width: 40%;
+flex-wrap: wrap;
+display: flex;
+text-align: center;
+height: 180px;
+justify-content: right;
+background-color: #212124;
+font-size: 20px;
+}
+
+.card p {
+margin: 0;
+font-size: 50px;
+font-weight: lighter;
+text-align: left;
+}
+
+.cards h1 {
+font-size: 22px;
+width: 100%;
+border-bottom: solid white 1px;
+text-align: left;
+font-weight: lighter;
+margin: 20px;
+}
+
+.temperatura,
+.umidade {
+margin: 5px;
+margin-left: 20px;
+width: 75%;
+}
+
+.cor-alerta {
+width: 13%;
+height: 30%;
+border-radius: 50px;
+margin-top: 6%;
+/* background-color: #c7c7c7; */
+}
+
+.btns-dash {
+display: flex;
+align-items: center;
+justify-content: center;
+margin-top: 30px;
+}
+
+.graph {
+width: 80%;
+margin: auto;
+padding-top: 45px;
+}
+
+.btn-chart {
+font-family: "Exo 2", sans-serif;
+border: 0;
+font-weight: 600;
+font-size: 18px;
+padding: 10px 15px;
+color: white;
+background-color: #e6005a;
+margin: 5px;
+}
+
+.dropbtn {
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    /* padding: 16px; */
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #f1f1f1}
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown:hover .dropbtn {
+    border-bottom: solid blue;
+  }
+  
