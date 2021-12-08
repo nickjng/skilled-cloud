@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>teste</title>
+
+    <style>
+    
+        body{
+            margin: 0;
+        }
+        .teste{
+            width:100%;
+            height: 35px;
+            background-color: black;
+        }
+        .dash {
+  width: 100%;
+  position: relative;
+  /* top: 0; */
+  /* left: 25%; */
+  background-color: #161618;
+
+  /* width: 75%;
+    display: flex;
+    background-color: #161618;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;*/
+  height: 100vh;
+}
+
+.regua {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  /* margin-top: 30px; */
+}
+
+.perigo-frio {
+  background-color: #5c6bc0;
+}
+
+.perigo-quente {
+  background-color: #ff7043;
+}
+
+.alerta-frio {
+  background-color: #42a5f5;
+}
+
+.alerta-quente {
+  background-color: #ffee58;
+}
+
+.ideal {
+  background-color: #9ccc65;
+}
+
+.item-regua {
+  padding: 5px;
+  width: 15%;
+  margin: 5px;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 450px;
+  width: 100%;
+  align-items: center;
+  color: white;
+}
+
+.card {
+  margin: 2%;
+  width: 40%;
+  flex-wrap: wrap;
+  display: flex;
+  text-align: center;
+  height: 180px;
+  justify-content: right;
+  background-color: #212124;
+  font-size: 20px;
+}
+
+.card p {
+  margin: 0;
+  font-size: 50px;
+  font-weight: lighter;
+  text-align: left;
+}
+
+.cards h1 {
+  font-size: 22px;
+  width: 100%;
+  border-bottom: solid white 1px;
+  text-align: left;
+  font-weight: lighter;
+  margin: 20px;
+}
+
+.temperatura,
+.umidade {
+  margin: 5px;
+  margin-left: 20px;
+  width: 75%;
+}
+
+.cor-alerta {
+  width: 13%;
+  height: 30%;
+  border-radius: 50px;
+  margin-top: 6%;
+  /* background-color: #c7c7c7; */
+}
+
+.btns-dash {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.graph {
+  width: 80%;
+  margin: auto;
+  padding-top: 45px;
+}
+
+.btn-chart {
+  font-family: "Exo 2", sans-serif;
+  border: 0;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 10px 15px;
+  color: white;
+  background-color: #e6005a;
+  margin: 5px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="teste">
+        menu
+    </div>
+
+    <div class="dash">
+        <div class="regua">
+            <div class="item-regua perigo-frio">
+                <h4>Perigo</h4>
+                <h2>5°C</h2>
+            </div>
+            <div class="item-regua alerta-frio">
+                <h4>Alerta</h4>
+                <h2>10°C</h2>
+            </div>
+            <div class="item-regua ideal">
+                <h4>Ideal</h4>
+                <h2>20°C</h2>
+            </div>
+            <div class="item-regua alerta-quente">
+                <h4>Alerta</h4>
+                <h2>21°C</h2>
+            </div>
+            <div class="item-regua perigo-quente">
+                <h4>Perigo</h4>
+                <h2>23°C</h2>
+            </div>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <h1>Aquário 1</h1>
+                <div class="temperatura">
+                    <p id="temp_aquario_1">-°C</p>
+                </div>
+                <div class="cor-alerta" id="card_1"></div>
+            </div>
+            <div class="card">
+                <h1>Aquário 1</h1>
+                <div class="temperatura">
+                    <p id="temp_aquario_2">-°C</p>
+                </div>
+                <div class="cor-alerta" id="card_2"></div>
+
+            </div>
+            <div class="card">
+                <h1>Aquário 1</h1>
+                <div class="temperatura">
+                    <p id="temp_aquario_3">-°C</p>
+                </div>
+                <div class="cor-alerta ideal" id="card_3"></div>
+            </div>
+            <div class="card">
+                <h1>Aquário 1</h1>
+                <div class="temperatura">
+                    <p id="temp_aquario_4">-°C</p>
+                </div>
+                <div class="cor-alerta" id="card_4"></div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>
+<script>
+  function obterDadosGrafico(idSensor) {
+        if (proximaAtualizacao != undefined) {
+            clearTimeout(proximaAtualizacao);
+        }
+
+        fetch(`/medidas/ultimas/${idSensor}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    plotarGrafico(resposta, idSensor);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+    }
+</script>
