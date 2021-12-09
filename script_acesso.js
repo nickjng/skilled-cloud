@@ -131,13 +131,13 @@ function entrar() {
                 sessionStorage.NOME_USUARIO = json.nome;
                 sessionStorage.ID_USUARIO = json.id;
                 alert('Bem vindo!');
-                window.location="./dashboard.html";
+                window.location="./dashboard2.html";
                 
 
             });
 
         } else {
-
+            alert("Email ou senha incorretos!")
             console.log("Houve um erro ao tentar realizar o login!");
 
             resposta.text().then(texto => {

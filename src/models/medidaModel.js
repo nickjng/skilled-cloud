@@ -2,8 +2,8 @@ var database = require("../database/config");
 
 function buscarUltimasMedidas(idSensor, limite_linhas) {
     instrucaoSql = `select 
-                        temperatura, 
-                        umidade, 
+                        temperatura as temperatura, 
+                        umidade as umidade, 
                         data_hora,
                         DATE_FORMAT(data_hora,'%H:%i:%s') as momento_grafico
                     from medida
@@ -13,12 +13,12 @@ function buscarUltimasMedidas(idSensor, limite_linhas) {
     return database.executar(instrucaoSql);
 }
 
-function buscarMedidasEmTempoReal(idSensor) {
+function buscarMedidasEmTempoReal(idAquario) {
     instrucaoSql = `select 
                         temperatura, 
                         umidade, DATE_FORMAT(data_hora,'%H:%i:%s') as momento_grafico, 
                         fkSensor 
-                        from medida where fkSensor = ${idSensor} 
+                        from medida where fkSensor = ${idAquario} 
                     order by idMedida desc limit 1`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);

@@ -8,7 +8,7 @@
     <title>teste</title>
 
 </head>
-<body>
+<body style="background-color: rgba(26, 24, 24, 0.849);">
     <div style="background-color: rgba(0, 0, 0, 0.87); width: 100%; height: 50px; display: flex; justify-content: space-around; align-items: center;">
       <img src="./css/imgs/Logotipo_black_2.png" alt="logo Skilled Cloud" style="width: 80px; cursor: pointer;">
       <span style="font-size: 25px;">Skilled Cloud</span>
@@ -25,27 +25,27 @@
 
     
 
-    <div class="dash">
+    <div class="dash" style="background-color: rgba(26, 24, 24, 0.849);">
         <div class="regua">
             <div class="item-regua perigo-frio">
                 <h4>Perigo</h4>
-                <h2>5°C</h2>
+                
             </div>
             <div class="item-regua alerta-frio">
                 <h4>Alerta</h4>
-                <h2>10°C</h2>
+                
             </div>
             <div class="item-regua ideal">
                 <h4>Ideal</h4>
-                <h2>20°C</h2>
+                
             </div>
             <div class="item-regua alerta-quente">
                 <h4>Alerta</h4>
-                <h2>21°C</h2>
+                
             </div>
             <div class="item-regua perigo-quente">
                 <h4>Perigo</h4>
-                <h2>23°C</h2>
+                
             </div>
         </div>
 
@@ -87,17 +87,17 @@
 </html>
 <script>
 
-    window.onload =  atualizacaoPeriodica();
+    window.onload =  atualizacaoPeriodicaTemp();
     window.onload =  atualizacaoPeriodica2();
-    function atualizacaoPeriodica() {
-        obterdados(1);
-        obterdados(2);
+    function atualizacaoPeriodicaTemp() {
+        obterdadosTemp(1);
+        obterdadosTemp(3);
         
-        setTimeout(atualizacaoPeriodica, 5000);
+        setTimeout(atualizacaoPeriodicaTemp, 5000);
     }
 
-    function obterdados(idaquario) {
-        fetch(`/medidas/tempo-real/${idaquario}`)
+    function obterdadosTemp(idAquario) {
+        fetch(`/medidas/tempo-real/${idAquario}`)
             .then(resposta => {
 
                 if (resposta.ok) {
@@ -109,7 +109,7 @@
                             temperatura: resposta[0].temperatura,
                         }
 
-                        alertar((resposta[0].temperatura).toFixed(), idaquario);
+                        alertarTemp((resposta[0].temperatura).toFixed(), idAquario);
                     });
                 } else {
 
@@ -121,13 +121,13 @@
             });
     }
 
-    function alertar(temperatura, idAquario) {
+    function alertarTemp(temperatura, idAquario) {
         var limites = {
-            muito_quente: 8,
-            quente: 6,
-            ideal: 4,
-            frio: 2,
-            muito_frio: 0
+            muito_quente: 25,
+            quente: 22,
+            ideal: 20,
+            frio: 10,
+            muito_frio: 5
         };
 
         var classe_temperatura = 'cor-alerta';
@@ -155,28 +155,34 @@
 
         var card;
 
+        
+
         if (idAquario == 1) {
             temp_geladeira_1.innerHTML = temperatura + "°C";
             card = card_1
-        } else if (idAquario == 2) {
+            
+        } else if (idAquario == 3) {
             temp_geladeira_2.innerHTML = temperatura + "°C";
-            card = card_2
+            card = card_3
+            
         } 
+        
 
         // alterando
         card.className = classe_temperatura;
 
     }
 
+
     function atualizacaoPeriodica2() {
-        obterdados(3);
+        obterdados(2);
         obterdados(4);
         
-        setTimeout(atualizacaoPeriodica, 5000);
+        setTimeout(atualizacaoPeriodica2, 5000);
     }
 
-    function obterdados(idaquario) {
-        fetch(`/medidas/tempo-real/${idaquario}`)
+    function obterdados(idAquario) {
+        fetch(`/medidas/tempo-real/${idAquario}`)
             .then(resposta => {
 
                 if (resposta.ok) {
@@ -188,7 +194,7 @@
                             umidade: resposta[0].umidade,
                         }
 
-                        alertar((resposta[0].umidade).toFixed(), idaquario);
+                        alertar2((resposta[0].umidade).toFixed(), idAquario);
                     });
                 } else {
 
@@ -200,7 +206,7 @@
             });
     }
 
-    function alertar(umidade, idAquario) {
+    function alertar2(umidade, idAquario) {
         var limites = {
             muito_quente: 1,
             quente: 0.3,
@@ -234,16 +240,16 @@
 
         var card;
 
-        if (idaquario == 3) {
+        if (idAquario == 2) {
             umidade_geladeira_1.innerHTML = umidade + "%";
-            card = card_1
-        } else if (idaquario == 4) {
-            umidade_geladeira_2.innerHTML = umidade + "%";
             card = card_2
+        } else if (idAquario == 4) {
+            umidade_geladeira_2.innerHTML = umidade + "%";
+            card = card_4
         } 
 
         // alterando
-        card.className = classe_umidade;
+        card.className = classe_temperatura;
 
     }
 </script>
