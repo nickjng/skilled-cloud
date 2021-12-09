@@ -11,4 +11,12 @@ router.get("/tempo-real/:idSensor", function (req, res) {
     medidaController.buscarMedidasEmTempoReal(req, res);
 })
 
+router.get("/listarGeladeiras",function(req,res){
+    medidaController.listarGeladeiras(req,res);
+})
+
+router.get("/listarSensor/:idGeladeira",function(req,res){
+    medidaController.listarSensor(req,res);
+})
+
 module.exports = router;
