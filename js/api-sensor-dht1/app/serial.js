@@ -1,6 +1,6 @@
 const sensors = require('./sensors');
 const SerialPort = require('serialport');
-const { parse } = require('path/posix');
+
 const Readline = SerialPort.parsers.Readline;
 
 
