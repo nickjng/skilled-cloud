@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="./css/style1.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./funcoes.js"></script>
     <title>teste</title>
 
 </head>
@@ -14,7 +15,7 @@
       <span style="font-size: 25px;">Skilled Cloud</span>
       
       <div class="dropdown">
-        <button class="dropbtn">Nome da Empresa</button>
+        <button class="dropbtn" id="nome_usuario"></button>
         <div class="dropdown-content">
         <a href="#">dados</a>
         <a href="#">Dashboard</a>
@@ -89,6 +90,7 @@
 
     window.onload =  atualizacaoPeriodicaTemp();
     window.onload =  atualizacaoPeriodica2();
+    window.onload =  validarSessao();
     function atualizacaoPeriodicaTemp() {
         obterdadosTemp(1);
         obterdadosTemp(3);

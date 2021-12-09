@@ -128,7 +128,7 @@ function entrar() {
                 console.log(JSON.stringify(json));
 
                 sessionStorage.EMAIL_USUARIO = json.email;
-                sessionStorage.NOME_USUARIO = json.nome;
+                sessionStorage.NOME_FABRICANTE = json.nomeFabricante;
                 sessionStorage.ID_USUARIO = json.id;
                 alert('Bem vindo!');
                 window.location="./dashboard2.html";
