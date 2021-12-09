@@ -36,12 +36,12 @@ router.post('/sendData', (request, response) => {
     let data_agora = new Date()
 
     var sql = "INSERT INTO medida(temperatura, umidade, data_hora, fkSensor) VALUES(?)";
-    values = [temperatura, umidade, data_agora, (Math.random() * 40).toFixed(1)];
+    values = [temperatura, umidade, data_agora, ((Math.random() * 39) + 1).toFixed(1)];
     db.query(sql, [values], function(err, result){
         if(err) throw err;
         console.log("Medidas inseridas: " + result.affectedRows)
     });
-    values2 = [temperatura, umidade, data_agora, (Math.random() * 40).toFixed(1)];
+    values2 = [temperatura, umidade, data_agora, ((Math.random() * 39) + 1).toFixed(1)];
     db.query(sql, [values2], function(err, result){
         if(err) throw err;
         console.log("Medidas inseridas: " + result.affectedRows)
