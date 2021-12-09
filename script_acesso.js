@@ -43,6 +43,13 @@ function cadastro(){
         
                     if (resposta.ok) {
                         window.alert("Cadastro realizado com sucesso!");
+                        input_email.value = '';
+                        input_senha.value = '';
+                        input_nome.value = '';
+                        input_cep.value = '';
+                        input_endereco.value = '';
+                        input_cnpj.value = '';
+
                     } else {
                         throw ("Houve um erro ao tentar realizar o cadastro!");
                     }
@@ -95,13 +102,11 @@ function entrar() {
         document.getElementById("input_entrar_senha").style.border = "1px solid red"
         return false;
         
-    }
-
-    if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
-        window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
-        document.getElementById("input_entrar_email").style.border = "1px solid red"
-        document.getElementById("input_entrar_senha").style.border = "1px solid red"
-    }
+    } else if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
+            window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+            document.getElementById("input_entrar_email").style.border = "1px solid red"
+            document.getElementById("input_entrar_senha").style.border = "1px solid red"
+    } else {
 
     fetch("/usuarios/autenticar", {
         method: "POST",
@@ -125,7 +130,9 @@ function entrar() {
                 sessionStorage.EMAIL_USUARIO = json.email;
                 sessionStorage.NOME_USUARIO = json.nome;
                 sessionStorage.ID_USUARIO = json.id;
+                alert('Bem vindo!');
                 window.location="./dashboard.html";
+                
 
             });
 
@@ -143,4 +150,5 @@ function entrar() {
     })
 
     return false;
+}
 }

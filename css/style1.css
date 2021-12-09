@@ -406,18 +406,10 @@ canvas {
     background-color: black;
 }
 .dash {
-width: 100%;
-position: relative;
-/* top: 0; */
-/* left: 25%; */
-background-color: #161618;
 
-/* width: 75%;
-display: flex;
-background-color: #161618;
-flex-direction: column;
-align-items: center;
-justify-content: space-around;*/
+margin-top: 50px;
+width: 100%;
+background-color: white;
 height: 100vh;
 }
 
@@ -434,11 +426,11 @@ background-color: #5c6bc0;
 }
 
 .perigo-quente {
-background-color: #ff7043;
+background-color: red;
 }
 
 .alerta-frio {
-background-color: #42a5f5;
+background-color: #4263f5;
 }
 
 .alerta-quente {
@@ -446,7 +438,7 @@ background-color: #ffee58;
 }
 
 .ideal {
-background-color: #9ccc65;
+background-color: #81d81d;
 }
 
 .item-regua {
