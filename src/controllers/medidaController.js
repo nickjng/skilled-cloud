@@ -1,5 +1,19 @@
 var medidaModel = require("../models/medidaModel");
 
+function listarGeladeiras(req, res) {
+    medidaModel.listarGeladeiras().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as geladeiras: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 function buscarUltimasMedidas(req, res) {
 
     const limite_linhas = 7;
@@ -17,6 +31,22 @@ function buscarUltimasMedidas(req, res) {
     }).catch(function (erro) {
         console.log(erro);
         console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function listarSensor(req, res) {
+    var idGeladeira = req.params.idGeladeira;
+
+    medidaModel.listarSensor(idGeladeira).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar sensores.", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);
     });
 }
@@ -43,6 +73,8 @@ function buscarMedidasEmTempoReal(req, res) {
 
 module.exports = {
     buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
+    buscarMedidasEmTempoReal,
+    listarGeladeiras,
+    listarSensor
 
 }

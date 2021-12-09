@@ -1,5 +1,17 @@
 var database = require("../database/config");
 
+function listarGeladeiras() {
+    instrucaoSql = `select * from geladeira where fkFabricante=1;`;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function listarSensor(idGeladeira){
+    instrucaoSql = `select * from Sensor where fkGeladeira = ${idGeladeira}`;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 function buscarUltimasMedidas(idSensor, limite_linhas) {
     instrucaoSql = `select 
                         temperatura as temperatura, 
@@ -28,5 +40,7 @@ function buscarMedidasEmTempoReal(idAquario) {
 
 module.exports = {
     buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
+    buscarMedidasEmTempoReal,
+    listarGeladeiras,
+    listarSensor
 }
