@@ -5,14 +5,12 @@ var connection = mysql.createConnection({
     port     : '3306',
     user     : 'root',
     password : '@Claudia12',
-    database : 'SkilledCloud'
+    database : 'skilledcloud'
 });
 
 connection.connect(function(err) {
     if (err) throw err;
     console.log('Conectado ao BD com sucesso!')
 });
-
-
 
 module.exports = connection;

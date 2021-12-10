@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AcquaTec | Dashboards</title>
 
-    <link rel="stylesheet" href="./css/style.css">
+    
+    <link rel="stylesheet" href="./css/style1.css">
     <link rel="stylesheet" href="dashboards.css">
     <script src="./funcoes.js"></script>
 
@@ -23,6 +24,20 @@
 </head>
 
 <body onload="listarGeladeiras(fabricante),validarSessao()">
+
+    <div style="background-color: rgba(0, 0, 0, 0.87); width: 100%; height: 50px; display: flex; justify-content: space-around; align-items: center;">
+        <img src="./css/imgs/Logotipo_black_2.png" alt="logo Skilled Cloud" style="width: 80px; cursor: pointer;">
+        <span style="font-size: 25px;">Skilled Cloud</span>
+        
+        <div class="dropdown">
+          <button class="dropbtn" id="nome_usuario"></button>
+          <div class="dropdown-content">
+          <a href="#">dados</a>
+          <a href="./dashboardGrafico.html">Dashboard</a>
+          <a href="./index.html">Sair</a>
+          </div>
+        </div>
+      </div>
     <!-- <body onload="validarSessao()"> -->
 
     <div class="janela">
