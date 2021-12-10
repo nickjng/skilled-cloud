@@ -129,7 +129,7 @@ function entrar() {
 
                 sessionStorage.EMAIL_USUARIO = json.email;
                 sessionStorage.NOME_FABRICANTE = json.nomeFabricante;
-                sessionStorage.ID_USUARIO = json.id;
+                sessionStorage.ID_FABRICANTE = json.idFabricante;
                 alert('Bem vindo!');
                 window.location="./dashboard2.html";
                 

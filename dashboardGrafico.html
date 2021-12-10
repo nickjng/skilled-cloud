@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="dashboards.css">
-    <script src="../js/funcoes.js"></script>
+    <script src="./funcoes.js"></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
@@ -22,7 +22,7 @@
 
 </head>
 
-<body onload="listarGeladeiras()">
+<body onload="listarGeladeiras(fabricante),validarSessao()">
     <!-- <body onload="validarSessao()"> -->
 
     <div class="janela">
@@ -52,13 +52,15 @@
 
     let proximaAtualizacao;
 
+    var Grafico_1 = null;
+    var Grafico_2 = null;
     // b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-
+    var fabricante = sessionStorage.ID_FABRICANTE;
     var lista_timeouts = [];
 
 
-    function listarGeladeiras() {
-        fetch("/medidas/listarGeladeiras").then(function (resposta) {
+    function listarGeladeiras(idFabricante) {
+        fetch(`/medidas/listarGeladeiras/${idFabricante}`).then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {
                     var feed = document.getElementById("btn-dash");
@@ -72,8 +74,9 @@
                     // console.log("Dados recebidos: ", JSON.stringify(resposta));
 
                     var feed = document.getElementById("btn-dash");
-
+                    var numeroGeladeira=0;
                     for (let i = 0; i < resposta.length; i++) {
+                        
                         var publicacao = resposta[i];
 
                         // criando e manipulando elementos do HTML via JavaScript
@@ -82,7 +85,7 @@
                         var idGeladeira = document.createElement("var");
 
                         idGeladeira = publicacao.idGeladeira;
-                        divBotao.innerHTML = `Geladeira ${idGeladeira}`;
+                        divBotao.innerHTML = `Geladeira ${numeroGeladeira+=1}`;
                         divBotao.setAttribute("onclick", `listarSensor(${idGeladeira})`)
 
                         divBotao.className = "btn-chart";
@@ -107,15 +110,15 @@
 
     function listarSensor(idGeladeira) {
 
-        for(var timeOut = 0; timeOut < lista_timeouts.length; timeOut++) {
+        for (var timeOut = 0; timeOut < lista_timeouts.length; timeOut++) {
             clearTimeout(lista_timeouts[timeOut]);
         }
 
-        if(Grafico_1 != null) {
+        if (Grafico_1 != null) {
             Grafico_1.destroy();
         }
 
-        if(Grafico_2 != null) {
+        if (Grafico_2 != null) {
             Grafico_2.destroy();
         }
 
@@ -175,8 +178,6 @@
 
     }
 
-    var Grafico_1 = null;
-    var Grafico_2 = null;
     // só altere aqui se souber o que está fazendo!
     function plotarGrafico_1(resposta, idSensor) {
 
@@ -276,29 +277,19 @@
 
     // só mexer se quiser alterar o tempo de atualização
     // ou se souber o que está fazendo!
-    function atualizarGrafico(idSensor, dados, grafico) {
-        fetch(`/medidas/tempo-real/${idSensor}`, { cache: 'no-store' }).then(function (response) {
+    
+    function obterDadosGrafico_2(idSensor) {
+        
+        fetch(`/medidas/ultimas/${idSensor}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
-                response.json().then(function (novoRegistro) {
+                response.json().then(function (resposta) {
+                    // 'console'.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
 
-                    // console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-                    // console.log(`Dados atuais do gráfico: ${dados}`);
-
-                    // tirando e colocando valores no gráfico
-                    dados.labels.shift(); // apagar o primeiro
-                    dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
-                    dados.datasets[0].data.shift();  // apagar o primeiro de umidade
-                    dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
-                    dados.datasets[1].data.shift();  // apagar o primeiro de umidade
-                    dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de umidade
-
-                    grafico.update();
-
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idSensor, dados, grafico), 2000);
+                    plotarGrafico_2(resposta, idSensor);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(idSensor, dados, grafico), 2000);
             }
         })
             .catch(function (error) {
@@ -307,35 +298,132 @@
 
     }
 
-    // function atualizarGrafico(idSensor, dados) {
+    // só altere aqui se souber o que está fazendo!
+    function plotarGrafico_2(resposta, idSensor) {
 
-    // fetch(`/medidas/tempo-real/${idSensor}`, { cache: 'no-store' }).then(function (response) {
-    //     if (response.ok) {
-    //         response.json().then(function (novoRegistro) {
+        // .log('iniciando plotagem do gráfico...');
 
-    //             console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-    //             console.log(`Dados atuais do gráfico: ${dados}`);
+        var dados = {
+            labels: [],
+            datasets: [
+                {
+                    yAxisID: 'y-umidade',
+                    label: 'Umidade',
+                    borderColor: '#32B9CD',
+                    backgroundColor: '#32b9cd8f',
+                    fill: true,
+                    data: []
+                },
+                {
+                    yAxisID: 'y-temperatura',
+                    label: 'Temperatura',
+                    borderColor: '#FFF',
+                    backgroundColor: '#32b9cd8f',
+                    fill: true,
+                    data: []
+                }
+            ]
+        };
 
-    //             // tirando e colocando valores no gráfico
-    //             dados.labels.shift(); // apagar o primeiro
-    //             dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
-    //             dados.datasets[0].data.shift();  // apagar o primeiro de umidade
-    //             dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
-    //             dados.datasets[1].data.shift();  // apagar o primeiro de umidade
-    //             dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de umidade
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            dados.labels.push(registro.momento_grafico);
+            dados.datasets[0].data.push(registro.umidade);
+            dados.datasets[1].data.push(registro.temperatura);
+        }
 
-    //             graficoUsado.update();
+        // console.log(JSON.stringify(dados));
 
-    //             proximaAtualizacao = setTimeout(() => atualizarGrafico(idSensor, dados), 2000);
-    //         });
-    //     } else {
-    //         console.error('Nenhum dado encontrado ou erro na API');
-    //         proximaAtualizacao = setTimeout(() => atualizarGrafico(idSensor, dados), 2000);
-    //     }
-    // })
-    //     .catch(function (error) {
-    //         console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-    //     });
+        var ctx = document.getElementById("canvas_grafico2").getContext('2d');
+        Grafico_2 = new Chart(ctx, {
+            data: dados,
+            type: "line",
+            //Configurações do gráfico
+            options: {
+                responsive: true,
+                animation: { duration: 500 },
+                hoverMode: 'index',
+                stacked: false,
+                title: {
+                    display: true,
+                    text: 'Histórico recente de umidade/temperatura'
+                },
+                scales: {
+                    yAxes: [{
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        id: 'y-temperatura',
+                        ticks: {
+                            beginAtZero: true,
+                            max: 100,
+                            min: 0
+                        }
+                    }, {
+                        type: 'linear',
+                        display: false,
+                        position: 'right',
+                        id: 'y-umidade',
+                        ticks: {
+                            beginAtZero: true,
+                            max: 100,
+                            min: 0
+                        },
 
-    // }
+                        gridLines: {
+                            drawOnChartArea: false,
+                        },
+                    }],
+                }
+            }
+        });
+
+        console.log('Grafico_2', Grafico_2);
+
+        function sendData() {
+            var http = new XMLHttpRequest();
+            http.open('POST', 'http://localhost:3000/api/sendData', true);
+            http.send(null);
+        }
+
+        setInterval(() => {
+            sendData();
+        }, 2000);
+
+        //Atualiza os dados de 5 em 5 segundos
+        var idTimeOut = setTimeout(() => atualizarGrafico(idSensor, dados, Grafico_2), 2000);
+        lista_timeouts.push(idTimeOut);
+    }
+
+        function atualizarGrafico(idSensor, dados, grafico) {
+            fetch(`/medidas/tempo-real/${idSensor}`, { cache: 'no-store' }).then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (novoRegistro) {
+    
+                        // console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+                        // console.log(`Dados atuais do gráfico: ${dados}`);
+    
+                        // tirando e colocando valores no gráfico
+                        dados.labels.shift(); // apagar o primeiro
+                        dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
+                        dados.datasets[0].data.shift();  // apagar o primeiro de umidade
+                        dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
+                        dados.datasets[1].data.shift();  // apagar o primeiro de umidade
+                        dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de umidade
+    
+                        grafico.update();
+    
+                        proximaAtualizacao = setTimeout(() => atualizarGrafico(idSensor, dados, grafico), 2000);
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idSensor, dados, grafico), 2000);
+                }
+            })
+                .catch(function (error) {
+                    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+                });
+    
+        }
+        
 </script>

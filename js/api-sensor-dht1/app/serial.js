@@ -83,8 +83,8 @@ class ArduinoDataRead {
 				let value = data.toString().split(';');
 				let temperature = parseFloat(value[1].replace('\r', ''));
 				let humidity = parseFloat(value[0].replace('\r', ''));
-                this.listData.push(humidity+=1);
-                this.__listDataTemp.push(temperature+=1)
+                this.listData.push(humidity+1.5);
+                this.__listDataTemp.push(temperature+1)
                 console.log("Temp: ",temperature," Umidade: ",humidity);
             });
             

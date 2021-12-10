@@ -11,7 +11,7 @@ router.get("/tempo-real/:idSensor", function (req, res) {
     medidaController.buscarMedidasEmTempoReal(req, res);
 })
 
-router.get("/listarGeladeiras",function(req,res){
+router.get("/listarGeladeiras/:idFabricante",function(req,res){
     medidaController.listarGeladeiras(req,res);
 })
 

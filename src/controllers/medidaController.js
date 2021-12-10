@@ -1,7 +1,9 @@
 var medidaModel = require("../models/medidaModel");
 
 function listarGeladeiras(req, res) {
-    medidaModel.listarGeladeiras().then(function (resultado) {
+    var idFabricante = req.params.idFabricante;
+    medidaModel.listarGeladeiras(idFabricante).then(function (resultado) {
+
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {

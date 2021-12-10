@@ -1,7 +1,7 @@
 var database = require("../database/config");
 
-function listarGeladeiras() {
-    instrucaoSql = `select * from geladeira where fkFabricante=1;`;
+function listarGeladeiras(idFabricante) {
+    instrucaoSql = `select * from geladeira where fkFabricante=${idFabricante};`;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }

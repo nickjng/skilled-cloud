@@ -14,7 +14,7 @@ function validarSessao() {
 
         // finalizarAguardar();
     } else {
-        window.location = "../login.html";
+        window.location = "../acesso.html";
 
     }
 }
